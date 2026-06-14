@@ -1,0 +1,136 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Cardano
+providerId: cardano
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - Blockchain
+  - Cardano
+  - Cryptocurrency
+  - Proof-of-Stake
+description: Blockfrost offers four subscription tiers for Cardano API access. The Starter plan is free
+  forever. Paid plans (Hobby at €29/month, Developer at €79/month, Enterprise by contact) unlock higher
+  daily request quotas, additional projects, webhooks, workspaces, and premium transaction submission.
+  All prices exclude VAT.
+sources:
+  - https://blockfrost.dev/overview/plans-and-billing
+  - https://blockfrost.io/
+plans:
+  - id: cardano-blockfrost-starter
+    name: Starter
+    type: freemium
+    description: Free-forever plan for individual developers and hobbyists. Includes 1 project, 1 webhook,
+      50,000 API requests per day, and 100 MB IPFS storage.
+    entries:
+      - label: Daily API requests
+        name: requests_per_day_starter
+        type: quota
+        metric: api_request
+        limit: 50000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: 0
+        userMultiplied: false
+    elements:
+      - name: 1 project
+      - name: 1 webhook
+      - name: 100 MB IPFS storage
+      - name: 10 MB Filecoin storage
+      - name: Cardano Mainnet and Testnet access
+  - id: cardano-blockfrost-hobby
+    name: Hobby
+    type: flat-rate
+    description: Entry-level paid plan at €29/month (ex. VAT) for small teams and active developers.
+      Includes 3 projects, 3 webhooks, and 300,000 API requests per day.
+    entries:
+      - label: Monthly subscription
+        name: hobby_monthly
+        type: flat
+        metric: subscription
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '€29.00'
+        userMultiplied: false
+      - label: Daily API requests
+        name: requests_per_day_hobby
+        type: quota
+        metric: api_request
+        limit: 300000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: 0
+        userMultiplied: false
+    elements:
+      - name: 3 projects
+      - name: 3 webhooks
+      - name: 1,000 MB IPFS storage
+      - name: 100 MB Filecoin storage
+      - name: Cardano Mainnet and Testnet access
+  - id: cardano-blockfrost-developer
+    name: Developer
+    type: flat-rate
+    description: Professional plan at €79/month (ex. VAT) for production applications. Includes 10
+      projects, 10 webhooks, 1,000,000 API requests per day, workspaces, and Premium Submit access.
+    entries:
+      - label: Monthly subscription
+        name: developer_monthly
+        type: flat
+        metric: subscription
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '€79.00'
+        userMultiplied: false
+      - label: Daily API requests
+        name: requests_per_day_developer
+        type: quota
+        metric: api_request
+        limit: 1000000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: 0
+        userMultiplied: false
+    elements:
+      - name: 10 projects
+      - name: 10 webhooks
+      - name: 2 workspaces
+      - name: 50,000 MB IPFS storage
+      - name: 1,000 MB Filecoin storage
+      - name: Premium Submit access
+      - name: Cardano Mainnet and Testnet access
+  - id: cardano-blockfrost-enterprise
+    name: Enterprise
+    type: custom
+    description: Enterprise plan with custom pricing, available by contacting Blockfrost support. Includes
+      whitelisting, custom rate limiting, and dedicated support on top of all Developer features.
+    entries:
+      - label: Monthly subscription
+        name: enterprise_monthly
+        type: custom
+        metric: subscription
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Custom number of projects
+      - name: Custom webhooks and workspaces
+      - name: IP whitelisting
+      - name: Custom rate limiting
+      - name: Premium Submit access
+      - name: Dedicated support
+      - name: Cardano Mainnet and Testnet access
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

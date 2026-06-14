@@ -1,0 +1,72 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Cardano
+providerId: cardano
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Blockchain
+  - Cardano
+description: Blockfrost enforces per-IP rate limiting on all Cardano API requests. Each IP address is
+  allowed 10 requests per second with a burst allowance of up to 500 requests that refills at 10
+  requests per second. Daily request quotas are enforced per project based on the active subscription
+  plan. Enterprise plans support custom rate limit configuration.
+sources:
+  - https://blockfrost.dev/overview/plans-and-billing
+  - https://docs.blockfrost.io/
+responseCodes:
+  throttled: 429
+limits:
+  - name: Blockfrost Cardano API — sustained rate
+    scope: IP
+    metric: requests_per_second
+    limit: 10
+    timeFrame: second
+    notes: Applies to all endpoint requests identified by client IP address.
+  - name: Blockfrost Cardano API — burst allowance
+    scope: IP
+    metric: requests_burst
+    limit: 500
+    timeFrame: burst
+    notes: Burst pool of 500 requests refills at 10 requests per second; useful for batch data ingestion.
+  - name: Blockfrost Cardano API — Starter daily quota
+    scope: project
+    metric: requests_per_day
+    limit: 50000
+    timeFrame: day
+    notes: Day is measured from midnight to midnight UTC.
+  - name: Blockfrost Cardano API — Hobby daily quota
+    scope: project
+    metric: requests_per_day
+    limit: 300000
+    timeFrame: day
+    notes: Day is measured from midnight to midnight UTC.
+  - name: Blockfrost Cardano API — Developer daily quota
+    scope: project
+    metric: requests_per_day
+    limit: 1000000
+    timeFrame: day
+    notes: Day is measured from midnight to midnight UTC.
+  - name: Blockfrost Cardano API — Enterprise daily quota
+    scope: project
+    metric: requests_per_day
+    limit: -1
+    timeFrame: day
+    notes: Custom limits negotiated with Blockfrost support; IP whitelisting available.
+policies:
+  - name: Token bucket / burst
+    description: Requests are governed by a token-bucket algorithm; the bucket holds 500 tokens and
+      refills at 10 tokens per second. Exceeding the bucket returns HTTP 429.
+  - name: Daily quota reset
+    description: Daily request counters reset at midnight UTC regardless of the consumer's local timezone.
+  - name: Backoff on 429
+    description: Clients receiving HTTP 429 should apply exponential backoff with jitter before retrying.
+  - name: Enterprise custom limits
+    description: Enterprise subscribers may negotiate custom per-IP or per-project rate limits and
+      whitelist trusted IP ranges through Blockfrost support.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

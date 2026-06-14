@@ -1,0 +1,104 @@
+aid: cardano
+url: https://raw.githubusercontent.com/api-evangelist/cardano/refs/heads/main/apis.yml
+name: Cardano
+tags:
+  - Blockchain
+  - Cryptocurrency
+  - Proof-of-Stake
+  - Smart Contracts
+  - Web3
+type: Index
+kind: company
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+created: '2026-06-13'
+modified: '2026-06-13'
+position: Consumer
+description: >-
+  Cardano is a proof-of-stake blockchain platform designed for secure and scalable decentralized applications and smart
+  contracts. Developer API access to the Cardano network is provided primarily through Blockfrost, a hosted REST API
+  service that exposes over 100 endpoints covering transactions, addresses, assets, blocks, epochs, stake pools,
+  governance, scripts, metadata, and mempool data. Authentication uses project-scoped API keys passed as HTTP headers.
+  Blockfrost operates on Cardano Mainnet, Preview, and Pre-Production testnets, and also supports IPFS storage and the
+  Milkomeda sidechain. SDKs are available for 15+ programming languages.
+apis:
+  - aid: cardano:blockfrost-cardano-api
+    name: Blockfrost Cardano API
+    tags:
+      - Blockchain
+      - Cardano
+      - Transactions
+      - Addresses
+      - Assets
+      - Blocks
+      - Epochs
+      - Pools
+      - Smart Contracts
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://cardano-mainnet.blockfrost.io/api/v0
+    humanURL: https://blockfrost.dev/start-building/cardano/
+    properties:
+      - url: https://blockfrost.dev/start-building/cardano/
+        type: Documentation
+      - url: https://docs.blockfrost.io/
+        type: APIReference
+      - url: https://blockfrost.dev/overview/plans-and-billing
+        type: Plans
+      - url: plans/cardano-plans-pricing.yml
+        type: Plans
+      - url: rate-limits/cardano-rate-limits.yml
+        type: RateLimits
+      - url: finops/cardano-finops.yml
+        type: FinOps
+    description: >-
+      The Blockfrost Cardano API provides instant, highly optimized REST access to the Cardano blockchain without
+      requiring developers to run their own node or manage infrastructure. The API covers over 100 endpoints across
+      accounts, addresses, assets, blocks, epochs, governance, ledger state, mempool, metadata, network statistics,
+      pools, scripts, transactions, and utilities. All responses are JSON; amounts are in Lovelaces (1 ADA = 1,000,000
+      Lovelaces); addresses, stake addresses, and pool IDs use Bech32 encoding; assets, policies, scripts, and
+      transaction hashes use lowercase hex. Authentication requires a project_id header obtained by registering at
+      blockfrost.io. Pagination defaults to 100 results per page; ordering defaults to ascending (oldest first) and
+      can be reversed with ?order=desc.
+    x-features:
+      - project_id header authentication
+      - Cardano Mainnet, Preview, and Pre-Production testnet support
+      - Bech32 and lowercase-hex encoded identifiers
+      - Paginated responses with configurable ordering
+      - IPFS and Milkomeda sidechain endpoints
+      - 15+ official SDKs across programming languages
+    x-use-cases:
+      - Query transaction details, UTXOs, and redeemers for on-chain analytics
+      - Look up ADA and native-asset balances for any address
+      - Monitor stake pool performance, delegators, and reward history
+      - Track epoch parameters and protocol changes over time
+      - Inspect Plutus and native scripts for smart-contract verification
+      - Submit and monitor transactions via the mempool endpoint
+  - aid: cardano:blockfrost-ipfs-api
+    name: Blockfrost IPFS API
+    tags:
+      - Blockchain
+      - Cardano
+      - IPFS
+      - Storage
+      - Decentralized Storage
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://ipfs.blockfrost.io/api/v0
+    humanURL: https://blockfrost.dev/
+    properties:
+      - url: https://docs.blockfrost.io/
+        type: Documentation
+      - url: https://blockfrost.dev/overview/plans-and-billing
+        type: Plans
+    description: >-
+      Blockfrost also operates as an IPFS provider, enabling developers building on Cardano to pin and retrieve
+      content-addressed files via the InterPlanetary File System. The IPFS API base URL is
+      https://ipfs.blockfrost.io/api/v0 and uses the same project_id authentication as the Cardano mainnet API.
+      Storage quota varies by subscription plan, ranging from 100 MB on the free Starter tier to 50,000 MB on
+      the Developer tier.
+    x-use-cases:
+      - Pin NFT metadata and media files referenced in Cardano native asset policies
+      - Store off-chain data linked from on-chain transaction metadata
+      - Retrieve IPFS content via Blockfrost gateway for dApp frontends
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
