@@ -1,0 +1,12 @@
+{
+  "network": "string",
+  "version": "string",
+  "parameters": {
+    "k": 0,
+    "m": 0,
+    "phi_f": 0.0
+  },
+  "initiated_at": "2023-01-01T00:00:00Z",
+  "sealed_at": "2023-01-01T00:00:00Z",
+  "total_signers": 0
+}

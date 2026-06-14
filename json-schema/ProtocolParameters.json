@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/ProtocolParameters",
+  "title": "Protocolparameters",
+  "description": "Protocol cryptographic parameters",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "k",
+    "m",
+    "phi_f"
+  ],
+  "properties": {
+    "k": {
+      "description": "Quorum parameter",
+      "type": "integer",
+      "format": "int64"
+    },
+    "m": {
+      "description": "Security parameter (number of lotteries)",
+      "type": "integer",
+      "format": "int64"
+    },
+    "phi_f": {
+      "description": "f in phi(w) = 1 - (1 - f)^w, where w is the stake of a participant",
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "example": {
+    "k": 857,
+    "m": 6172,
+    "phi_f": 0.2
+  }
+}

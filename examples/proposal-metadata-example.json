@@ -1,0 +1,9 @@
+{
+  "id": "string",
+  "tx_hash": "string",
+  "cert_index": 0,
+  "url": "https://abc.xyz/gov.json",
+  "hash": "69c0c68cb57f4a5b4a87bad896fc274678e7aea98e200fa14a1cb40c0cab1d8c\"",
+  "json_metadata": {},
+  "bytes": "string"
+}

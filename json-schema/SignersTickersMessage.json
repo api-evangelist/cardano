@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/SignersTickersMessage",
+  "title": "Signerstickersmessage",
+  "description": "represents the list of signers known by the aggregator",
+  "type": "object",
+  "required": [
+    "network",
+    "signers"
+  ],
+  "properties": {
+    "network": {
+      "description": "Cardano network of the aggregator",
+      "type": "string",
+      "format": "bytes"
+    },
+    "signers": {
+      "description": "Known signers",
+      "items": {
+        "$ref": "#/components/schemas/SignerTickerListItemMessage"
+      }
+    }
+  },
+  "example": {
+    "network": "mainnet",
+    "signers": [
+      {
+        "party_id": "pool1234567890",
+        "pool_ticker": "[Pool_Name]",
+        "has_registered": true
+      },
+      {
+        "party_id": "pool0987654321",
+        "has_registered": false
+      }
+    ]
+  }
+}

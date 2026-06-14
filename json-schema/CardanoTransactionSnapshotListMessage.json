@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/CardanoTransactionSnapshotListMessage",
+  "title": "Cardanotransactionsnapshotlistmessage",
+  "description": "CardanoTransactionSnapshotListMessage represents a list of Cardano transactions set snapshots",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "hash",
+      "certificate_hash",
+      "merkle_root",
+      "epoch",
+      "block_number",
+      "created_at"
+    ],
+    "properties": {
+      "hash": {
+        "description": "Hash of the Cardano transactions set",
+        "type": "string",
+        "format": "bytes"
+      },
+      "certificate_hash": {
+        "description": "Hash of the associated certificate",
+        "type": "string",
+        "format": "bytes"
+      },
+      "merkle_root": {
+        "description": "Merkle root of the Cardano transactions set",
+        "type": "string",
+        "format": "bytes"
+      },
+      "epoch": {
+        "$ref": "#/components/schemas/Epoch"
+      },
+      "block_number": {
+        "description": "Cardano block number",
+        "type": "integer",
+        "format": "int64"
+      },
+      "created_at": {
+        "description": "Date and time at which the Cardano transactions set was created",
+        "type": "string",
+        "format": "date-time,"
+      }
+    },
+    "example": {
+      "hash": "6367ee65d0d1272e6e70736a1ea2cae34015874517f6328364f6b73930966732",
+      "certificate_hash": "7905e83ab5d7bc082c1bbc3033bfd19c539078830d19080d1f241c70aa532572",
+      "merkle_root": "33bfd17bc082ab5dd1fc0788241c70aa5325241c70aa532530d190809c5391bbc307905e8372",
+      "epoch": 123,
+      "block_number": 1234,
+      "created_at": "2022-06-14T10:52:31Z"
+    }
+  }
+}

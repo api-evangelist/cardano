@@ -1,0 +1,11 @@
+{
+  "drep_id": "string",
+  "hex": "string",
+  "amount": "string",
+  "active": true,
+  "active_epoch": 0,
+  "has_script": true,
+  "retired": true,
+  "expired": true,
+  "last_active_epoch": 0
+}

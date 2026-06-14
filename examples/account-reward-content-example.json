@@ -1,0 +1,8 @@
+[
+  {
+    "epoch": 0,
+    "amount": "string",
+    "pool_id": "string",
+    "type": "leader"
+  }
+]

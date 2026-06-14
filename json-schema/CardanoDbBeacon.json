@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/CardanoDbBeacon",
+  "title": "Cardanodbbeacon",
+  "description": "A point in the Cardano chain at which a Mithril certificate of the Cardano Database should be produced",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "network",
+    "epoch",
+    "immutable_file_number"
+  ],
+  "properties": {
+    "network": {
+      "description": "Cardano network",
+      "type": "string"
+    },
+    "epoch": {
+      "$ref": "#/components/schemas/Epoch"
+    },
+    "immutable_file_number": {
+      "description": "Number of the last immutable file that should be included the snapshot",
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "example": {
+    "network": "mainnet",
+    "epoch": 329,
+    "immutable_file_number": 7060000
+  }
+}

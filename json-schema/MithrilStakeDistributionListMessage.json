@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/MithrilStakeDistributionListMessage",
+  "title": "Mithrilstakedistributionlistmessage",
+  "description": "MithrilStakeDistributionListMessage represents a list of Mithril stake distribution",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "epoch",
+      "hash",
+      "created_at"
+    ],
+    "properties": {
+      "epoch": {
+        "$ref": "#/components/schemas/Epoch"
+      },
+      "hash": {
+        "description": "Hash of the Mithril stake distribution",
+        "type": "string",
+        "format": "bytes"
+      },
+      "certificate_hash": {
+        "description": "Hash of the associated certificate",
+        "type": "string",
+        "format": "bytes"
+      },
+      "created_at": {
+        "description": "Date and time at which the Mithril stake distribution was created",
+        "type": "string",
+        "format": "date-time,"
+      }
+    },
+    "example": {
+      "epoch": 123,
+      "hash": "6367ee65d0d1272e6e70736a1ea2cae34015874517f6328364f6b73930966732",
+      "certificate_hash": "7905e83ab5d7bc082c1bbc3033bfd19c539078830d19080d1f241c70aa532572",
+      "created_at": "2022-06-14T10:52:31Z"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "start": {
+      "time": 0,
+      "slot": 0,
+      "epoch": 0
+    },
+    "end": {
+      "time": 0,
+      "slot": 0,
+      "epoch": 0
+    },
+    "parameters": {
+      "epoch_length": 0,
+      "slot_length": 0,
+      "safe_zone": 0
+    }
+  }
+]

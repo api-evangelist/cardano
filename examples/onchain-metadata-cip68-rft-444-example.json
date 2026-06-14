@@ -1,0 +1,10 @@
+{
+  "name": "My NFT token",
+  "image": "ipfs://ipfs/QmfKyJ4tuvHowwKQCbCHj4L5T3fSj8cjs7Aau8V7BWv226",
+  "description": "My NFT token description",
+  "mediaType": "image/jpeg",
+  "decimals": 0.0,
+  "files": [
+    {}
+  ]
+}

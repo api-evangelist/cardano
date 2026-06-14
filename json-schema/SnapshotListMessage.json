@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/SnapshotListMessage",
+  "title": "Snapshotlistmessage",
+  "description": "SnapshotListMessage represents a list of snapshots",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/Snapshot"
+  },
+  "example": [
+    {
+      "digest": "6367ee65d0d1272e6e70736a1ea2cae34015874517f6328364f6b73930966732",
+      "beacon": {
+        "network": "mainnet",
+        "epoch": 329,
+        "immutable_file_number": 7060000
+      },
+      "certificate_hash": "7905e83ab5d7bc082c1bbc3033bfd19c539078830d19080d1f241c70aa532572",
+      "size": 26058531636,
+      "created_at": "2022-07-21T17:32:28Z",
+      "locations": [
+        "https://mithril-cdn-us.iohk.io/snapshot/6367ee65d0d1272e6e70736a1ea2cae34015874517f6328364f6b73930966732",
+        "https://mithril-cdn-eu.iohk.io/snapshot/6367ee65d0d1272e6e70736a1ea2cae34015874517f6328364f6b73930966732",
+        "magnet:?xt=urn:sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C",
+        "ipfs:QmPXME1oRtoT627YKaDPDQ3PwA8tdP9rWuAAweLzqSwAWT"
+      ]
+    }
+  ]
+}

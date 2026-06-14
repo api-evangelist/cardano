@@ -1,0 +1,36 @@
+{
+  "pool_id": "pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy",
+  "hex": "0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735",
+  "vrf_key": "0b5245f9934ec2151116fb8ec00f35fd00e0aa3b075c4ed12cce440f999d8233",
+  "blocks_minted": 69,
+  "blocks_epoch": 4,
+  "live_stake": "6900000000",
+  "live_size": 0.0,
+  "live_saturation": 0.0,
+  "live_delegators": 0.0,
+  "active_stake": "4200000000",
+  "active_size": 0.0,
+  "declared_pledge": "5000000000",
+  "live_pledge": "5000000001",
+  "margin_cost": 0.0,
+  "fixed_cost": "340000000",
+  "reward_account": "stake1uxkptsa4lkr55jleztw43t37vgdn88l6ghclfwuxld2eykgpgvg3f",
+  "owners": [
+    "string"
+  ],
+  "registration": [
+    "string"
+  ],
+  "retirement": [
+    "252f622976d39e646815db75a77289cf16df4ad2b287dd8e3a889ce14c13d1a8"
+  ],
+  "calidus_key": {
+    "id": "calidus15yt3nqapz799tvp2lt8adttt29k6xa2xnltahn655tu4sgcph42p7",
+    "pub_key": "57758911253f6b31df2a87c10eb08a2c9b8450768cb8dd0d378d93f7c2e220f0",
+    "nonce": 149292000,
+    "tx_hash": "f45ed21c6bc1832cf7f11f4bd6ee47ca9684b4f6f8ff8a398aa2df065eac0ba8",
+    "block_height": 11548408,
+    "block_time": 1740858988,
+    "epoch": 543
+  }
+}

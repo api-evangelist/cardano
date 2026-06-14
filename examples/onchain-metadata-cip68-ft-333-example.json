@@ -1,0 +1,7 @@
+{
+  "name": "My FT token",
+  "description": "My FT token description",
+  "logo": "ipfs://ipfs/QmfKyJ4tuvHowwKQCbCHj4L5T3fSj8cjs7Aau8V7BWv226",
+  "ticker": "TOK",
+  "decimals": 0.0
+}

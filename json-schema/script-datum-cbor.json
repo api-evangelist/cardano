@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/script_datum_cbor",
+  "title": "Script Datum Cbor",
+  "type": "object",
+  "properties": {
+    "cbor": {
+      "type": "string",
+      "description": "CBOR serialized datum"
+    }
+  },
+  "required": [
+    "cbor"
+  ],
+  "example": {
+    "cbor": "19a6aa"
+  }
+}

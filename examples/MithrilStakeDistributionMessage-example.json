@@ -1,0 +1,14 @@
+{
+  "epoch": 0,
+  "hash": "string",
+  "certificate_hash": "string",
+  "signers": [
+    {}
+  ],
+  "created_at": "string",
+  "protocol_parameters": {
+    "k": 0,
+    "m": 0,
+    "phi_f": 0.0
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/StakeDistributionParty",
+  "title": "Stakedistributionparty",
+  "description": "Signer registered to a signature round.\n",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "party_id": {
+      "description": "The unique identifier of the signer",
+      "type": "string"
+    },
+    "stake": {
+      "description": "Stake share as computed in the 'stake distribution' by the Cardano Node, multiplied by a billion (1.0e9)",
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "example": {
+    "party_id": "1234567890",
+    "stake": 1234
+  }
+}

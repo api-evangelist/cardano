@@ -1,0 +1,10 @@
+[
+  {
+    "tx_hash": "string",
+    "action": "registered",
+    "deposit": "string",
+    "tx_slot": 0,
+    "block_time": 0,
+    "block_height": 0
+  }
+]

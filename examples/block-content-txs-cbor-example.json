@@ -1,0 +1,6 @@
+[
+  {
+    "tx_hash": "string",
+    "cbor": "string"
+  }
+]

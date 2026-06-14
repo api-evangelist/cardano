@@ -1,0 +1,9 @@
+[
+  {
+    "hash": "string",
+    "previous_hash": "string",
+    "beacon": {},
+    "signed_message": "string",
+    "aggregate_verification_key": "string"
+  }
+]

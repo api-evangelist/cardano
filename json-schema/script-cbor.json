@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/script_cbor",
+  "title": "Script Cbor",
+  "type": "object",
+  "properties": {
+    "cbor": {
+      "type": "string",
+      "nullable": true,
+      "description": "CBOR contents of the `plutus` script, null for `timelocks`"
+    }
+  },
+  "required": [
+    "cbor"
+  ],
+  "example": {
+    "cbor": "4e4d01000033222220051200120011"
+  }
+}

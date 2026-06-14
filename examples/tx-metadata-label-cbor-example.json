@@ -1,0 +1,7 @@
+[
+  {
+    "tx_hash": "string",
+    "cbor_metadata": "string",
+    "metadata": "string"
+  }
+]

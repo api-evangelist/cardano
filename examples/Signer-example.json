@@ -1,0 +1,7 @@
+{
+  "party_id": "string",
+  "verification_key": "string",
+  "verification_key_signature": "string",
+  "operational_certificate": "string",
+  "kes_period": 0
+}

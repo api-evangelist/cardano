@@ -1,0 +1,2173 @@
+{
+  "title": "Blockfrost Cardano API Vocabulary",
+  "description": "Terms used across the Blockfrost Cardano API schemas",
+  "source": "https://raw.githubusercontent.com/blockfrost/openapi/master/openapi.yaml",
+  "terms": [
+    {
+      "term": "time",
+      "description": "Block creation time in UNIX time",
+      "type": "integer",
+      "usedIn": [
+        "block_content"
+      ]
+    },
+    {
+      "term": "height",
+      "description": "Block number",
+      "type": "integer",
+      "usedIn": [
+        "block_content"
+      ]
+    },
+    {
+      "term": "hash",
+      "description": "Hash of the block",
+      "type": "string",
+      "usedIn": [
+        "block_content",
+        "drep_metadata",
+        "proposal_metadata",
+        "proposal_metadata_v2",
+        "tx_content",
+        "tx_content_utxo",
+        "pool_metadata",
+        "CertificateListItemMessage",
+        "CertificateMessage",
+        "MithrilStakeDistributionMessage",
+        "CardanoTransactionSnapshotMessage"
+      ]
+    },
+    {
+      "term": "slot",
+      "description": "Slot number",
+      "type": "integer",
+      "usedIn": [
+        "block_content",
+        "tx_content"
+      ]
+    },
+    {
+      "term": "epoch",
+      "description": "Epoch number",
+      "type": "integer",
+      "usedIn": [
+        "block_content",
+        "epoch_content",
+        "epoch_param_content",
+        "EpochSettingsMessage",
+        "CardanoDbBeacon",
+        "CertificatePendingMessage",
+        "RegisterSignerMessage",
+        "CertificateListItemMessage",
+        "CertificateMessage",
+        "MithrilStakeDistributionMessage",
+        "CardanoTransactionSnapshotMessage"
+      ]
+    },
+    {
+      "term": "epoch_slot",
+      "description": "Slot within the epoch",
+      "type": "integer",
+      "usedIn": [
+        "block_content"
+      ]
+    },
+    {
+      "term": "slot_leader",
+      "description": "Bech32 ID of the slot leader or specific block description in case there is no slot leader",
+      "type": "string",
+      "usedIn": [
+        "block_content"
+      ]
+    },
+    {
+      "term": "size",
+      "description": "Block size in Bytes",
+      "type": "integer",
+      "usedIn": [
+        "block_content",
+        "tx_content",
+        "Snapshot",
+        "SnapshotDownloadMessage"
+      ]
+    },
+    {
+      "term": "tx_count",
+      "description": "Number of transactions in the block",
+      "type": "integer",
+      "usedIn": [
+        "block_content",
+        "epoch_content",
+        "account_addresses_total",
+        "address_content_total"
+      ]
+    },
+    {
+      "term": "output",
+      "description": "Total output within the block in Lovelaces",
+      "type": "string",
+      "usedIn": [
+        "block_content",
+        "epoch_content"
+      ]
+    },
+    {
+      "term": "fees",
+      "description": "Total fees within the block in Lovelaces",
+      "type": "string",
+      "usedIn": [
+        "block_content",
+        "epoch_content",
+        "tx_content"
+      ]
+    },
+    {
+      "term": "block_vrf",
+      "description": "VRF key of the block",
+      "type": "string",
+      "usedIn": [
+        "block_content"
+      ]
+    },
+    {
+      "term": "op_cert",
+      "description": "The hash of the operational certificate of the block producer",
+      "type": "string",
+      "usedIn": [
+        "block_content"
+      ]
+    },
+    {
+      "term": "op_cert_counter",
+      "description": "The value of the counter used to produce the operational certificate",
+      "type": "string",
+      "usedIn": [
+        "block_content"
+      ]
+    },
+    {
+      "term": "previous_block",
+      "description": "Hash of the previous block",
+      "type": "string",
+      "usedIn": [
+        "block_content"
+      ]
+    },
+    {
+      "term": "next_block",
+      "description": "Hash of the next block",
+      "type": "string",
+      "usedIn": [
+        "block_content"
+      ]
+    },
+    {
+      "term": "confirmations",
+      "description": "Number of block confirmations",
+      "type": "integer",
+      "usedIn": [
+        "block_content"
+      ]
+    },
+    {
+      "term": "active_slots_coefficient",
+      "description": "The proportion of slots in which blocks should be issued",
+      "type": "number",
+      "usedIn": [
+        "genesis_content"
+      ]
+    },
+    {
+      "term": "update_quorum",
+      "description": "Determines the quorum needed for votes on the protocol parameter updates",
+      "type": "integer",
+      "usedIn": [
+        "genesis_content"
+      ]
+    },
+    {
+      "term": "max_lovelace_supply",
+      "description": "The total number of lovelace in the system",
+      "type": "string",
+      "usedIn": [
+        "genesis_content"
+      ]
+    },
+    {
+      "term": "network_magic",
+      "description": "Network identifier",
+      "type": "integer",
+      "usedIn": [
+        "genesis_content"
+      ]
+    },
+    {
+      "term": "epoch_length",
+      "description": "Number of slots in an epoch",
+      "type": "integer",
+      "usedIn": [
+        "genesis_content"
+      ]
+    },
+    {
+      "term": "system_start",
+      "description": "Time of slot 0 in UNIX time",
+      "type": "integer",
+      "usedIn": [
+        "genesis_content"
+      ]
+    },
+    {
+      "term": "slots_per_kes_period",
+      "description": "Number of slots in an KES period",
+      "type": "integer",
+      "usedIn": [
+        "genesis_content"
+      ]
+    },
+    {
+      "term": "slot_length",
+      "description": "Duration of one slot in seconds",
+      "type": "integer",
+      "usedIn": [
+        "genesis_content"
+      ]
+    },
+    {
+      "term": "max_kes_evolutions",
+      "description": "The maximum number of time a KES key can be evolved before a pool operator must create a new operational certificate",
+      "type": "integer",
+      "usedIn": [
+        "genesis_content"
+      ]
+    },
+    {
+      "term": "security_param",
+      "description": "Security parameter k",
+      "type": "integer",
+      "usedIn": [
+        "genesis_content"
+      ]
+    },
+    {
+      "term": "gov_action_id",
+      "description": "CIP-129 Governance Action Identifier of the `NewCommittee` action that seated this committee. `null` for the Conway-genesis committee.",
+      "type": "string",
+      "usedIn": [
+        "committee"
+      ]
+    },
+    {
+      "term": "proposal_tx_hash",
+      "description": "Hash of the transaction containing the `NewCommittee` action that seated this committee. `null` for the Conway-genesis committee.",
+      "type": "string",
+      "usedIn": [
+        "committee"
+      ]
+    },
+    {
+      "term": "proposal_index",
+      "description": "Index of the proposal within its transaction. `null` for the Conway-genesis committee.",
+      "type": "integer",
+      "usedIn": [
+        "committee"
+      ]
+    },
+    {
+      "term": "is_dissolved",
+      "description": "True iff an enacted `NoConfidence` governance action has dissolved this committee.",
+      "type": "boolean",
+      "usedIn": [
+        "committee"
+      ]
+    },
+    {
+      "term": "quorum",
+      "description": "Voting threshold of the committee.",
+      "type": "object",
+      "usedIn": [
+        "committee"
+      ]
+    },
+    {
+      "term": "members",
+      "description": "Members of the committee.",
+      "type": "array",
+      "usedIn": [
+        "committee"
+      ]
+    },
+    {
+      "term": "drep_id",
+      "description": "Bech32 encoded DRep address",
+      "type": "string",
+      "usedIn": [
+        "drep",
+        "drep_metadata",
+        "account_content"
+      ]
+    },
+    {
+      "term": "hex",
+      "description": "The raw bytes of the DRep",
+      "type": "string",
+      "usedIn": [
+        "drep",
+        "drep_metadata",
+        "pool",
+        "pool_metadata"
+      ]
+    },
+    {
+      "term": "amount",
+      "description": "The total amount of voting power this DRep is delegated.",
+      "type": "string",
+      "usedIn": [
+        "drep",
+        "address_content",
+        "address_content_extended"
+      ]
+    },
+    {
+      "term": "active",
+      "description": "Registration state of the DRep",
+      "type": "boolean",
+      "usedIn": [
+        "drep",
+        "account_content"
+      ]
+    },
+    {
+      "term": "active_epoch",
+      "description": "Epoch of the most recent registration",
+      "type": "integer",
+      "usedIn": [
+        "drep",
+        "account_content"
+      ]
+    },
+    {
+      "term": "has_script",
+      "description": "Flag indicating whether this DRep's credential is a script hash",
+      "type": "boolean",
+      "usedIn": [
+        "drep"
+      ]
+    },
+    {
+      "term": "retired",
+      "description": "Registration state of the DRep. Set to `true` if the DRep has been deregistered; otherwise, `false`.",
+      "type": "boolean",
+      "usedIn": [
+        "drep"
+      ]
+    },
+    {
+      "term": "expired",
+      "description": "Whether the DRep has been inactive for a consecutive number of epochs (determined by an epoch parameter `drep_activity`)",
+      "type": "boolean",
+      "usedIn": [
+        "drep"
+      ]
+    },
+    {
+      "term": "last_active_epoch",
+      "description": "Epoch of the most recent action - registration, update, deregistration or voting",
+      "type": "integer",
+      "usedIn": [
+        "drep"
+      ]
+    },
+    {
+      "term": "url",
+      "description": "URL to the drep metadata",
+      "type": "string",
+      "usedIn": [
+        "drep_metadata",
+        "proposal_metadata",
+        "proposal_metadata_v2",
+        "pool_metadata"
+      ]
+    },
+    {
+      "term": "json_metadata",
+      "description": "Content of the JSON metadata (validated CIP-119)",
+      "type": "string",
+      "usedIn": [
+        "drep_metadata",
+        "proposal_metadata",
+        "proposal_metadata_v2"
+      ]
+    },
+    {
+      "term": "bytes",
+      "description": "Content of the metadata (raw)",
+      "type": "string",
+      "usedIn": [
+        "drep_metadata",
+        "proposal_metadata",
+        "proposal_metadata_v2"
+      ]
+    },
+    {
+      "term": "error",
+      "description": "Present when metadata could not be fetched or validated.",
+      "type": "object",
+      "usedIn": [
+        "drep_metadata",
+        "proposal_metadata_v2",
+        "pool_metadata"
+      ]
+    },
+    {
+      "term": "id",
+      "description": "Governance Action Identifier (CIP-0129)",
+      "type": "string",
+      "usedIn": [
+        "proposal",
+        "proposal_parameters",
+        "proposal_metadata",
+        "proposal_metadata_v2"
+      ]
+    },
+    {
+      "term": "tx_hash",
+      "description": "Hash of the proposal transaction.",
+      "type": "string",
+      "usedIn": [
+        "proposal",
+        "proposal_parameters",
+        "proposal_metadata",
+        "proposal_metadata_v2"
+      ]
+    },
+    {
+      "term": "cert_index",
+      "description": "Index of the certificate within the proposal transaction.",
+      "type": "integer",
+      "usedIn": [
+        "proposal",
+        "proposal_parameters",
+        "proposal_metadata",
+        "proposal_metadata_v2"
+      ]
+    },
+    {
+      "term": "governance_type",
+      "description": "Type of proposal.",
+      "type": "string",
+      "usedIn": [
+        "proposal"
+      ]
+    },
+    {
+      "term": "governance_description",
+      "description": "An object describing the content of this GovActionProposal in a readable way.",
+      "type": "object",
+      "usedIn": [
+        "proposal"
+      ]
+    },
+    {
+      "term": "deposit",
+      "description": "The deposit amount paid for this proposal.",
+      "type": "string",
+      "usedIn": [
+        "proposal",
+        "tx_content"
+      ]
+    },
+    {
+      "term": "return_address",
+      "description": "Bech32 stake address of the reward address to receive the deposit when it is repaid.",
+      "type": "string",
+      "usedIn": [
+        "proposal"
+      ]
+    },
+    {
+      "term": "ratified_epoch",
+      "description": "The epoch at which the proposal was ratified. Null if the proposal has not been ratified.",
+      "type": "integer",
+      "usedIn": [
+        "proposal"
+      ]
+    },
+    {
+      "term": "enacted_epoch",
+      "description": "The epoch at which the proposal was enacted. Null if the proposal has not been enacted.",
+      "type": "integer",
+      "usedIn": [
+        "proposal"
+      ]
+    },
+    {
+      "term": "dropped_epoch",
+      "description": "The epoch at which the proposal was dropped. A proposal is dropped if it expires or if any of its dependencies expire.",
+      "type": "integer",
+      "usedIn": [
+        "proposal"
+      ]
+    },
+    {
+      "term": "expired_epoch",
+      "description": "The epoch at which the proposal expired. Null if the proposal has not expired.",
+      "type": "integer",
+      "usedIn": [
+        "proposal"
+      ]
+    },
+    {
+      "term": "expiration",
+      "description": "The epoch at which this governance action will expire.",
+      "type": "integer",
+      "usedIn": [
+        "proposal"
+      ]
+    },
+    {
+      "term": "parameters",
+      "type": "object",
+      "usedIn": [
+        "proposal_parameters",
+        "CertificateListItemMessageMetadata",
+        "CertificateMetadata"
+      ]
+    },
+    {
+      "term": "start_time",
+      "description": "Unix time of the start of the epoch",
+      "type": "integer",
+      "usedIn": [
+        "epoch_content"
+      ]
+    },
+    {
+      "term": "end_time",
+      "description": "Unix time of the end of the epoch",
+      "type": "integer",
+      "usedIn": [
+        "epoch_content"
+      ]
+    },
+    {
+      "term": "first_block_time",
+      "description": "Unix time of the first block of the epoch",
+      "type": "integer",
+      "usedIn": [
+        "epoch_content"
+      ]
+    },
+    {
+      "term": "last_block_time",
+      "description": "Unix time of the last block of the epoch",
+      "type": "integer",
+      "usedIn": [
+        "epoch_content"
+      ]
+    },
+    {
+      "term": "block_count",
+      "description": "Number of blocks within the epoch",
+      "type": "integer",
+      "usedIn": [
+        "epoch_content"
+      ]
+    },
+    {
+      "term": "active_stake",
+      "description": "Sum of all the active stakes within the epoch in Lovelaces",
+      "type": "string",
+      "usedIn": [
+        "epoch_content",
+        "pool"
+      ]
+    },
+    {
+      "term": "min_fee_a",
+      "description": "The linear factor for the minimum fee calculation for given epoch",
+      "type": "integer",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "min_fee_b",
+      "description": "The constant factor for the minimum fee calculation",
+      "type": "integer",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "max_block_size",
+      "description": "Maximum block body size in Bytes",
+      "type": "integer",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "max_tx_size",
+      "description": "Maximum transaction size",
+      "type": "integer",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "max_block_header_size",
+      "description": "Maximum block header size",
+      "type": "integer",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "key_deposit",
+      "description": "The amount of a key registration deposit in Lovelaces",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "pool_deposit",
+      "description": "The amount of a pool registration deposit in Lovelaces",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "e_max",
+      "description": "Epoch bound on pool retirement",
+      "type": "integer",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "n_opt",
+      "description": "Desired number of pools",
+      "type": "integer",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "a0",
+      "description": "Pool pledge influence",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "rho",
+      "description": "Monetary expansion",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "tau",
+      "description": "Treasury expansion",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "decentralisation_param",
+      "description": "Percentage of blocks produced by federated nodes",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "extra_entropy",
+      "description": "Seed for extra entropy",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "protocol_major_ver",
+      "description": "Accepted protocol major version",
+      "type": "integer",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "protocol_minor_ver",
+      "description": "Accepted protocol minor version",
+      "type": "integer",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "min_utxo",
+      "description": "Minimum UTXO value. Use `coins_per_utxo_size` for Alonzo and later eras",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "min_pool_cost",
+      "description": "Minimum stake cost forced on the pool",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "nonce",
+      "description": "Epoch number only used once",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "cost_models",
+      "description": "Cost models parameters for Plutus Core scripts. Deprecated, use `cost_models_raw` instead.",
+      "type": "object",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "cost_models_raw",
+      "description": "Cost models parameters for Plutus Core scripts in raw list form",
+      "type": "object",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "price_mem",
+      "description": "The per word cost of script memory usage",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "price_step",
+      "description": "The cost of script execution step usage",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "max_tx_ex_mem",
+      "description": "The maximum number of execution memory allowed to be used in a single transaction",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "max_tx_ex_steps",
+      "description": "The maximum number of execution steps allowed to be used in a single transaction",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "max_block_ex_mem",
+      "description": "The maximum number of execution memory allowed to be used in a single block",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "max_block_ex_steps",
+      "description": "The maximum number of execution steps allowed to be used in a single block",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "max_val_size",
+      "description": "The maximum Val size",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "collateral_percent",
+      "description": "The percentage of the transactions fee which must be provided as collateral when including non-native scripts",
+      "type": "integer",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "max_collateral_inputs",
+      "description": "The maximum number of collateral inputs allowed in a transaction",
+      "type": "integer",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "coins_per_utxo_size",
+      "description": "Cost per UTxO word for Alonzo. Cost per UTxO byte for Babbage and later.",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "coins_per_utxo_word",
+      "description": "Cost per UTxO word for Alonzo. Cost per UTxO byte for Babbage and later.",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "pvt_motion_no_confidence",
+      "description": "Pool Voting threshold for motion of no-confidence.",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "pvt_committee_normal",
+      "description": "Pool Voting threshold for new committee/threshold (normal state).",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "pvt_committee_no_confidence",
+      "description": "Pool Voting threshold for new committee/threshold (state of no-confidence).",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "pvt_hard_fork_initiation",
+      "description": "Pool Voting threshold for hard-fork initiation.",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "dvt_motion_no_confidence",
+      "description": "DRep Vote threshold for motion of no-confidence.",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "dvt_committee_normal",
+      "description": "DRep Vote threshold for new committee/threshold (normal state).",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "dvt_committee_no_confidence",
+      "description": "DRep Vote threshold for new committee/threshold (state of no-confidence).",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "dvt_update_to_constitution",
+      "description": "DRep Vote threshold for update to the Constitution.",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "dvt_hard_fork_initiation",
+      "description": "DRep Vote threshold for hard-fork initiation.",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "dvt_p_p_network_group",
+      "description": "DRep Vote threshold for protocol parameter changes, network group.",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "dvt_p_p_economic_group",
+      "description": "DRep Vote threshold for protocol parameter changes, economic group.",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "dvt_p_p_technical_group",
+      "description": "DRep Vote threshold for protocol parameter changes, technical group.",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "dvt_p_p_gov_group",
+      "description": "DRep Vote threshold for protocol parameter changes, governance group.",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "dvt_treasury_withdrawal",
+      "description": "DRep Vote threshold for treasury withdrawal.",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "committee_min_size",
+      "description": "Minimal constitutional committee size.",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "committee_max_term_length",
+      "description": "Constitutional committee term limits.",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "gov_action_lifetime",
+      "description": "Governance action expiration.",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "gov_action_deposit",
+      "description": "Governance action deposit.",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "drep_deposit",
+      "description": "DRep deposit amount.",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "drep_activity",
+      "description": "DRep activity period.",
+      "type": "string",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "pvtpp_security_group",
+      "description": "Pool Voting threshold for security-relevant protocol parameters changes. Renamed to pvt_p_p_security_group.",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "pvt_p_p_security_group",
+      "description": "Pool Voting threshold for security-relevant protocol parameters changes.",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "min_fee_ref_script_cost_per_byte",
+      "type": "number",
+      "usedIn": [
+        "epoch_param_content"
+      ]
+    },
+    {
+      "term": "block",
+      "description": "Block hash",
+      "type": "string",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "block_height",
+      "description": "Block number",
+      "type": "integer",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "block_time",
+      "description": "Block creation time in UNIX time",
+      "type": "integer",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "index",
+      "description": "Transaction index within the block",
+      "type": "integer",
+      "usedIn": [
+        "tx_content",
+        "utils_addresses_xpub"
+      ]
+    },
+    {
+      "term": "output_amount",
+      "type": "array",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "invalid_before",
+      "description": "Left (included) endpoint of the timelock validity intervals",
+      "type": "string",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "invalid_hereafter",
+      "description": "Right (excluded) endpoint of the timelock validity intervals",
+      "type": "string",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "utxo_count",
+      "description": "Count of UTXOs within the transaction",
+      "type": "integer",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "withdrawal_count",
+      "description": "Count of the withdrawals within the transaction",
+      "type": "integer",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "mir_cert_count",
+      "description": "Count of the MIR certificates within the transaction",
+      "type": "integer",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "delegation_count",
+      "description": "Count of the delegations within the transaction",
+      "type": "integer",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "stake_cert_count",
+      "description": "Count of the stake keys (de)registration within the transaction",
+      "type": "integer",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "pool_update_count",
+      "description": "Count of the stake pool registration and update certificates within the transaction",
+      "type": "integer",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "pool_retire_count",
+      "description": "Count of the stake pool retirement certificates within the transaction",
+      "type": "integer",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "asset_mint_or_burn_count",
+      "description": "Count of asset mints and burns within the transaction",
+      "type": "integer",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "redeemer_count",
+      "description": "Count of redeemers within the transaction",
+      "type": "integer",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "valid_contract",
+      "description": "True if contract script passed validation",
+      "type": "boolean",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "treasury_donation",
+      "description": "Treasury donation in Lovelaces",
+      "type": "string",
+      "usedIn": [
+        "tx_content"
+      ]
+    },
+    {
+      "term": "inputs",
+      "type": "array",
+      "usedIn": [
+        "tx_content_utxo",
+        "mempool_tx_content"
+      ]
+    },
+    {
+      "term": "outputs",
+      "type": "array",
+      "usedIn": [
+        "tx_content_utxo",
+        "mempool_tx_content"
+      ]
+    },
+    {
+      "term": "cbor",
+      "description": "CBOR serialized transaction",
+      "type": "string",
+      "usedIn": [
+        "tx_content_cbor",
+        "script_cbor",
+        "script_datum_cbor"
+      ]
+    },
+    {
+      "term": "stake_address",
+      "description": "Bech32 stake address",
+      "type": "string",
+      "usedIn": [
+        "account_content",
+        "account_addresses_total",
+        "address_content",
+        "address_content_extended"
+      ]
+    },
+    {
+      "term": "registered",
+      "description": "Registration state of an account",
+      "type": "boolean",
+      "usedIn": [
+        "account_content"
+      ]
+    },
+    {
+      "term": "controlled_amount",
+      "description": "Balance of the account in Lovelaces",
+      "type": "string",
+      "usedIn": [
+        "account_content"
+      ]
+    },
+    {
+      "term": "rewards_sum",
+      "description": "Sum of all rewards for the account in the Lovelaces",
+      "type": "string",
+      "usedIn": [
+        "account_content"
+      ]
+    },
+    {
+      "term": "withdrawals_sum",
+      "description": "Sum of all the withdrawals for the account in Lovelaces",
+      "type": "string",
+      "usedIn": [
+        "account_content"
+      ]
+    },
+    {
+      "term": "reserves_sum",
+      "description": "Sum of all  funds from reserves for the account in the Lovelaces",
+      "type": "string",
+      "usedIn": [
+        "account_content"
+      ]
+    },
+    {
+      "term": "treasury_sum",
+      "description": "Sum of all funds from treasury for the account in the Lovelaces",
+      "type": "string",
+      "usedIn": [
+        "account_content"
+      ]
+    },
+    {
+      "term": "withdrawable_amount",
+      "description": "Sum of available rewards that haven't been withdrawn yet for the account in the Lovelaces",
+      "type": "string",
+      "usedIn": [
+        "account_content"
+      ]
+    },
+    {
+      "term": "pool_id",
+      "description": "Bech32 pool ID to which this account is delegated",
+      "type": "string",
+      "usedIn": [
+        "account_content",
+        "pool",
+        "pool_metadata"
+      ]
+    },
+    {
+      "term": "received_sum",
+      "type": "array",
+      "usedIn": [
+        "account_addresses_total",
+        "address_content_total"
+      ]
+    },
+    {
+      "term": "sent_sum",
+      "type": "array",
+      "usedIn": [
+        "account_addresses_total",
+        "address_content_total"
+      ]
+    },
+    {
+      "term": "tx",
+      "type": "object",
+      "usedIn": [
+        "mempool_tx_content"
+      ]
+    },
+    {
+      "term": "redeemers",
+      "type": "array",
+      "usedIn": [
+        "mempool_tx_content"
+      ]
+    },
+    {
+      "term": "address",
+      "description": "Bech32 encoded addresses",
+      "type": "string",
+      "usedIn": [
+        "address_content",
+        "address_content_extended",
+        "address_content_total",
+        "utils_addresses_xpub",
+        "nutlink_address"
+      ]
+    },
+    {
+      "term": "type",
+      "description": "Address era",
+      "type": "string",
+      "usedIn": [
+        "address_content",
+        "address_content_extended",
+        "script"
+      ]
+    },
+    {
+      "term": "script",
+      "description": "True if this is a script address",
+      "type": "boolean",
+      "usedIn": [
+        "address_content",
+        "address_content_extended"
+      ]
+    },
+    {
+      "term": "vrf_key",
+      "description": "VRF key hash",
+      "type": "string",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "blocks_minted",
+      "description": "Total minted blocks",
+      "type": "integer",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "blocks_epoch",
+      "description": "Number of blocks minted in the current epoch",
+      "type": "integer",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "live_stake",
+      "type": "string",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "live_size",
+      "type": "number",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "live_saturation",
+      "type": "number",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "live_delegators",
+      "type": "number",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "active_size",
+      "type": "number",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "declared_pledge",
+      "description": "Stake pool certificate pledge",
+      "type": "string",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "live_pledge",
+      "description": "Stake pool current pledge",
+      "type": "string",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "margin_cost",
+      "description": "Margin tax cost of the stake pool",
+      "type": "number",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "fixed_cost",
+      "description": "Fixed tax cost of the stake pool",
+      "type": "string",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "reward_account",
+      "description": "Bech32 reward account of the stake pool",
+      "type": "string",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "owners",
+      "type": "array",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "registration",
+      "type": "array",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "retirement",
+      "type": "array",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "calidus_key",
+      "description": "Last valid Calidus key for the pool",
+      "type": "object",
+      "usedIn": [
+        "pool"
+      ]
+    },
+    {
+      "term": "ticker",
+      "description": "Ticker of the stake pool",
+      "type": "string",
+      "usedIn": [
+        "pool_metadata",
+        "asset_onchain_metadata_cip68_ft_333"
+      ]
+    },
+    {
+      "term": "name",
+      "description": "Name of the stake pool",
+      "type": "string",
+      "usedIn": [
+        "pool_metadata",
+        "asset_onchain_metadata_cip25",
+        "asset_onchain_metadata_cip68_ft_333",
+        "asset_onchain_metadata_cip68_nft_222",
+        "asset_onchain_metadata_cip68_rft_444"
+      ]
+    },
+    {
+      "term": "description",
+      "description": "Description of the stake pool",
+      "type": "string",
+      "usedIn": [
+        "pool_metadata",
+        "asset_onchain_metadata_cip25",
+        "asset_onchain_metadata_cip68_ft_333",
+        "asset_onchain_metadata_cip68_nft_222",
+        "asset_onchain_metadata_cip68_rft_444"
+      ]
+    },
+    {
+      "term": "homepage",
+      "description": "Home page of the stake pool",
+      "type": "string",
+      "usedIn": [
+        "pool_metadata"
+      ]
+    },
+    {
+      "term": "asset",
+      "description": "Hex-encoded asset full name",
+      "type": "string",
+      "usedIn": [
+        "asset"
+      ]
+    },
+    {
+      "term": "policy_id",
+      "description": "Policy ID of the asset",
+      "type": "string",
+      "usedIn": [
+        "asset"
+      ]
+    },
+    {
+      "term": "asset_name",
+      "description": "Hex-encoded asset name of the asset",
+      "type": "string",
+      "usedIn": [
+        "asset"
+      ]
+    },
+    {
+      "term": "fingerprint",
+      "description": "CIP14 based user-facing fingerprint",
+      "type": "string",
+      "usedIn": [
+        "asset"
+      ]
+    },
+    {
+      "term": "quantity",
+      "description": "Current asset quantity",
+      "type": "string",
+      "usedIn": [
+        "asset"
+      ]
+    },
+    {
+      "term": "initial_mint_tx_hash",
+      "description": "ID of the initial minting transaction",
+      "type": "string",
+      "usedIn": [
+        "asset"
+      ]
+    },
+    {
+      "term": "mint_or_burn_count",
+      "description": "Count of mint and burn transactions",
+      "type": "integer",
+      "usedIn": [
+        "asset"
+      ]
+    },
+    {
+      "term": "onchain_metadata",
+      "description": "On-chain metadata which SHOULD adhere to the valid standards,\nbased on which we perform the look up and display the asset\n(best effort)\n",
+      "type": "object",
+      "usedIn": [
+        "asset"
+      ]
+    },
+    {
+      "term": "onchain_metadata_standard",
+      "description": "If on-chain metadata passes validation, we display the standard\nunder which it is valid\n",
+      "type": "string",
+      "usedIn": [
+        "asset"
+      ]
+    },
+    {
+      "term": "onchain_metadata_extra",
+      "description": "Arbitrary plutus data (CIP68).\n",
+      "type": "string",
+      "usedIn": [
+        "asset"
+      ]
+    },
+    {
+      "term": "metadata",
+      "description": "Off-chain metadata fetched from GitHub based on network.\nMainnet: https://github.com/cardano-foundation/cardano-token-registry/\nTestnet: https://github.com/input-output-hk/metadata-registry-testnet/\n",
+      "type": "object",
+      "usedIn": [
+        "asset",
+        "nutlink_address",
+        "CertificateListItemMessage",
+        "CertificateMessage"
+      ]
+    },
+    {
+      "term": "script_hash",
+      "description": "Script hash",
+      "type": "string",
+      "usedIn": [
+        "script"
+      ]
+    },
+    {
+      "term": "serialised_size",
+      "description": "The size of the CBOR serialised script, if a Plutus script",
+      "type": "integer",
+      "usedIn": [
+        "script"
+      ]
+    },
+    {
+      "term": "json",
+      "description": "JSON contents of the `timelock` script, null for `plutus` scripts",
+      "type": "string",
+      "usedIn": [
+        "script_json"
+      ]
+    },
+    {
+      "term": "json_value",
+      "description": "JSON content of the datum",
+      "type": "object",
+      "usedIn": [
+        "script_datum"
+      ]
+    },
+    {
+      "term": "xpub",
+      "description": "Script hash",
+      "type": "string",
+      "usedIn": [
+        "utils_addresses_xpub"
+      ]
+    },
+    {
+      "term": "role",
+      "description": "Account role",
+      "type": "integer",
+      "usedIn": [
+        "utils_addresses_xpub"
+      ]
+    },
+    {
+      "term": "supply",
+      "type": "object",
+      "usedIn": [
+        "network"
+      ]
+    },
+    {
+      "term": "stake",
+      "type": "object",
+      "usedIn": [
+        "network",
+        "Stake",
+        "StakeDistributionParty"
+      ]
+    },
+    {
+      "term": "metadata_url",
+      "description": "URL of the specific metadata file",
+      "type": "string",
+      "usedIn": [
+        "nutlink_address"
+      ]
+    },
+    {
+      "term": "metadata_hash",
+      "description": "Hash of the metadata file",
+      "type": "string",
+      "usedIn": [
+        "nutlink_address"
+      ]
+    },
+    {
+      "term": "image",
+      "description": "URI(s) of the associated asset",
+      "type": "string",
+      "usedIn": [
+        "asset_onchain_metadata_cip25",
+        "asset_onchain_metadata_cip68_nft_222",
+        "asset_onchain_metadata_cip68_rft_444"
+      ]
+    },
+    {
+      "term": "mediaType",
+      "description": "Mime sub-type of image",
+      "type": "string",
+      "usedIn": [
+        "asset_onchain_metadata_cip25",
+        "asset_onchain_metadata_cip68_nft_222",
+        "asset_onchain_metadata_cip68_rft_444"
+      ]
+    },
+    {
+      "term": "files",
+      "type": "array",
+      "usedIn": [
+        "asset_onchain_metadata_cip25",
+        "asset_onchain_metadata_cip68_nft_222",
+        "asset_onchain_metadata_cip68_rft_444"
+      ]
+    },
+    {
+      "term": "logo",
+      "description": "URI(s) of the associated asset",
+      "type": "string",
+      "usedIn": [
+        "asset_onchain_metadata_cip68_ft_333"
+      ]
+    },
+    {
+      "term": "decimals",
+      "description": "Number of decimals",
+      "type": "number",
+      "usedIn": [
+        "asset_onchain_metadata_cip68_ft_333",
+        "asset_onchain_metadata_cip68_rft_444"
+      ]
+    },
+    {
+      "term": "open_api_version",
+      "description": "Open API version",
+      "type": "string",
+      "usedIn": [
+        "AggregatorFeaturesMessage"
+      ]
+    },
+    {
+      "term": "documentation_url",
+      "description": "Mithril documentation",
+      "type": "string",
+      "usedIn": [
+        "AggregatorFeaturesMessage"
+      ]
+    },
+    {
+      "term": "capabilities",
+      "description": "Capabilities of the aggregator",
+      "type": "object",
+      "usedIn": [
+        "AggregatorFeaturesMessage"
+      ]
+    },
+    {
+      "term": "protocol",
+      "type": "string",
+      "usedIn": [
+        "EpochSettingsMessage",
+        "CertificatePendingMessage"
+      ]
+    },
+    {
+      "term": "next_protocol",
+      "type": "string",
+      "usedIn": [
+        "EpochSettingsMessage",
+        "CertificatePendingMessage"
+      ]
+    },
+    {
+      "term": "k",
+      "description": "Quorum parameter",
+      "type": "integer",
+      "usedIn": [
+        "ProtocolParameters"
+      ]
+    },
+    {
+      "term": "m",
+      "description": "Security parameter (number of lotteries)",
+      "type": "integer",
+      "usedIn": [
+        "ProtocolParameters"
+      ]
+    },
+    {
+      "term": "phi_f",
+      "description": "f in phi(w) = 1 - (1 - f)^w, where w is the stake of a participant",
+      "type": "number",
+      "usedIn": [
+        "ProtocolParameters"
+      ]
+    },
+    {
+      "term": "network",
+      "description": "Cardano network",
+      "type": "string",
+      "usedIn": [
+        "CardanoDbBeacon",
+        "SignersTickersMessage",
+        "CertificateListItemMessageMetadata",
+        "CertificateMetadata"
+      ]
+    },
+    {
+      "term": "immutable_file_number",
+      "description": "Number of the last immutable file that should be included the snapshot",
+      "type": "integer",
+      "usedIn": [
+        "CardanoDbBeacon"
+      ]
+    },
+    {
+      "term": "beacon",
+      "type": "string",
+      "usedIn": [
+        "CertificatePendingMessage",
+        "CertificateListItemMessage",
+        "CertificateMessage",
+        "Snapshot",
+        "SnapshotDownloadMessage"
+      ]
+    },
+    {
+      "term": "entity_type",
+      "type": "string",
+      "usedIn": [
+        "CertificatePendingMessage",
+        "RegisterSingleSignatureMessage"
+      ]
+    },
+    {
+      "term": "signers",
+      "type": "array",
+      "usedIn": [
+        "CertificatePendingMessage",
+        "SignersTickersMessage",
+        "CertificateMetadata",
+        "MithrilStakeDistributionMessage"
+      ]
+    },
+    {
+      "term": "next_signers",
+      "type": "array",
+      "usedIn": [
+        "CertificatePendingMessage"
+      ]
+    },
+    {
+      "term": "party_id",
+      "description": "The unique identifier of the signer",
+      "type": "string",
+      "usedIn": [
+        "Signer",
+        "StakeDistributionParty",
+        "SignerRegistrationsListItemMessage",
+        "SignerTickerListItemMessage",
+        "RegisterSingleSignatureMessage"
+      ]
+    },
+    {
+      "term": "verification_key",
+      "description": "The public key used to authenticate signer signature",
+      "type": "string",
+      "usedIn": [
+        "Signer"
+      ]
+    },
+    {
+      "term": "verification_key_signature",
+      "description": "The signature of the verification_key (signed by the Cardano node KES secret key)",
+      "type": "string",
+      "usedIn": [
+        "Signer"
+      ]
+    },
+    {
+      "term": "operational_certificate",
+      "description": "The operational certificate of the stake pool operator attached to the signer node",
+      "type": "string",
+      "usedIn": [
+        "Signer"
+      ]
+    },
+    {
+      "term": "kes_period",
+      "description": "The number of updates of the KES secret key that signed the verification key",
+      "type": "integer",
+      "usedIn": [
+        "Signer"
+      ]
+    },
+    {
+      "term": "registered_at",
+      "type": "string",
+      "usedIn": [
+        "SignerRegistrationsMessage"
+      ]
+    },
+    {
+      "term": "signing_at",
+      "type": "string",
+      "usedIn": [
+        "SignerRegistrationsMessage"
+      ]
+    },
+    {
+      "term": "registrations",
+      "type": "array",
+      "usedIn": [
+        "SignerRegistrationsMessage"
+      ]
+    },
+    {
+      "term": "pool_ticker",
+      "description": "The signer pool ticker",
+      "type": "string",
+      "usedIn": [
+        "SignerTickerListItemMessage"
+      ]
+    },
+    {
+      "term": "has_registered",
+      "description": "The signer has registered at least once",
+      "type": "boolean",
+      "usedIn": [
+        "SignerTickerListItemMessage"
+      ]
+    },
+    {
+      "term": "signature",
+      "description": "The single signature of the digest",
+      "type": "string",
+      "usedIn": [
+        "RegisterSingleSignatureMessage"
+      ]
+    },
+    {
+      "term": "indexes",
+      "description": "The indexes of the lottery won that lead to the single signature",
+      "type": "array",
+      "usedIn": [
+        "RegisterSingleSignatureMessage"
+      ]
+    },
+    {
+      "term": "snapshot_digest",
+      "description": "Digest of the snapshot archive",
+      "type": "string",
+      "usedIn": [
+        "ProtocolMessageParts"
+      ]
+    },
+    {
+      "term": "next_aggregate_verification_key",
+      "description": "Aggregate verification key (AVK) that will be used to create the next multi signature",
+      "type": "string",
+      "usedIn": [
+        "ProtocolMessageParts"
+      ]
+    },
+    {
+      "term": "latest_block_number",
+      "description": "The latest signed block number",
+      "type": "string",
+      "usedIn": [
+        "ProtocolMessageParts",
+        "CardanoTransactionProofMessage"
+      ]
+    },
+    {
+      "term": "message_parts",
+      "type": "string",
+      "usedIn": [
+        "ProtocolMessage"
+      ]
+    },
+    {
+      "term": "version",
+      "description": "Version of the protocol",
+      "type": "string",
+      "usedIn": [
+        "CertificateListItemMessageMetadata",
+        "CertificateMetadata"
+      ]
+    },
+    {
+      "term": "initiated_at",
+      "description": "Date and time at which the certificate was initialized and ready to accept single signatures from signers",
+      "type": "string",
+      "usedIn": [
+        "CertificateListItemMessageMetadata",
+        "CertificateMetadata"
+      ]
+    },
+    {
+      "term": "sealed_at",
+      "description": "Date and time at which the certificate was sealed (when the quorum of single signatures was reached so that a multi signature could be aggregated from them)",
+      "type": "string",
+      "usedIn": [
+        "CertificateListItemMessageMetadata",
+        "CertificateMetadata"
+      ]
+    },
+    {
+      "term": "total_signers",
+      "description": "The number of the signers with their stakes and verification keys",
+      "type": "integer",
+      "usedIn": [
+        "CertificateListItemMessageMetadata"
+      ]
+    },
+    {
+      "term": "previous_hash",
+      "description": "Hash of the previous certificate",
+      "type": "string",
+      "usedIn": [
+        "CertificateListItemMessage",
+        "CertificateMessage"
+      ]
+    },
+    {
+      "term": "signed_entity_type",
+      "type": "string",
+      "usedIn": [
+        "CertificateListItemMessage",
+        "CertificateMessage"
+      ]
+    },
+    {
+      "term": "protocol_message",
+      "type": "string",
+      "usedIn": [
+        "CertificateListItemMessage",
+        "CertificateMessage"
+      ]
+    },
+    {
+      "term": "signed_message",
+      "description": "Hash of the protocol message that is signed by the signer participants",
+      "type": "string",
+      "usedIn": [
+        "CertificateListItemMessage",
+        "CertificateMessage"
+      ]
+    },
+    {
+      "term": "aggregate_verification_key",
+      "description": "Aggregate verification key used to verify the multi signature",
+      "type": "string",
+      "usedIn": [
+        "CertificateListItemMessage",
+        "CertificateMessage"
+      ]
+    },
+    {
+      "term": "multi_signature",
+      "description": "STM multi signature created from a quorum of single signatures from the signers",
+      "type": "string",
+      "usedIn": [
+        "CertificateMessage"
+      ]
+    },
+    {
+      "term": "genesis_signature",
+      "description": "Genesis signature created to bootstrap the certificate chain with the Cardano Genesis Keys",
+      "type": "string",
+      "usedIn": [
+        "CertificateMessage"
+      ]
+    },
+    {
+      "term": "digest",
+      "description": "Digest that is signed by the signer participants",
+      "type": "string",
+      "usedIn": [
+        "Snapshot",
+        "SnapshotDownloadMessage"
+      ]
+    },
+    {
+      "term": "certificate_hash",
+      "description": "Hash of the associated certificate",
+      "type": "string",
+      "usedIn": [
+        "Snapshot",
+        "MithrilStakeDistributionMessage",
+        "CardanoTransactionSnapshotMessage",
+        "CardanoTransactionProofMessage"
+      ]
+    },
+    {
+      "term": "created_at",
+      "description": "Date and time at which the snapshot was created",
+      "type": "string",
+      "usedIn": [
+        "Snapshot",
+        "MithrilStakeDistributionMessage",
+        "CardanoTransactionSnapshotMessage"
+      ]
+    },
+    {
+      "term": "locations",
+      "description": "Locations where the binary content of the snapshot can be retrieved",
+      "type": "array",
+      "usedIn": [
+        "Snapshot",
+        "SnapshotDownloadMessage"
+      ]
+    },
+    {
+      "term": "compression_algorithm",
+      "description": "Compression algorithm for the snapshot archive",
+      "type": "string",
+      "usedIn": [
+        "Snapshot",
+        "SnapshotDownloadMessage"
+      ]
+    },
+    {
+      "term": "cardano_node_version",
+      "description": "Version of the Cardano node which is used to create snapshot archives.",
+      "type": "string",
+      "usedIn": [
+        "Snapshot",
+        "SnapshotDownloadMessage"
+      ]
+    },
+    {
+      "term": "protocol_parameters",
+      "type": "string",
+      "usedIn": [
+        "MithrilStakeDistributionMessage"
+      ]
+    },
+    {
+      "term": "merkle_root",
+      "description": "Merkle root of the Cardano transactions set",
+      "type": "string",
+      "usedIn": [
+        "CardanoTransactionSnapshotMessage"
+      ]
+    },
+    {
+      "term": "block_number",
+      "description": "Cardano block number",
+      "type": "integer",
+      "usedIn": [
+        "CardanoTransactionSnapshotMessage"
+      ]
+    },
+    {
+      "term": "certified_transactions",
+      "description": "Proofs for certified Cardano transactions",
+      "type": "array",
+      "usedIn": [
+        "CardanoTransactionProofMessage"
+      ]
+    },
+    {
+      "term": "non_certified_transactions",
+      "type": "array",
+      "usedIn": [
+        "CardanoTransactionProofMessage"
+      ]
+    },
+    {
+      "term": "label",
+      "description": "optional label",
+      "type": "string",
+      "usedIn": [
+        "Error"
+      ]
+    },
+    {
+      "term": "message",
+      "description": "error message",
+      "type": "string",
+      "usedIn": [
+        "Error"
+      ]
+    }
+  ]
+}

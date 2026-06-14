@@ -1,0 +1,606 @@
+{
+  "@context": {
+    "@vocab": "https://blockfrost.io/ontology/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "cardano": "https://cardano.org/ontology/",
+    "blockfrost": "https://blockfrost.io/ontology/",
+    "time": {
+      "@id": "blockfrost:time",
+      "@type": "xsd:integer"
+    },
+    "height": {
+      "@id": "blockfrost:height",
+      "@type": "xsd:integer"
+    },
+    "hash": "blockfrost:hash",
+    "slot": {
+      "@id": "blockfrost:slot",
+      "@type": "xsd:integer"
+    },
+    "epoch": {
+      "@id": "blockfrost:epoch",
+      "@type": "xsd:integer"
+    },
+    "epoch_slot": {
+      "@id": "blockfrost:epoch_slot",
+      "@type": "xsd:integer"
+    },
+    "slot_leader": "blockfrost:slot_leader",
+    "size": {
+      "@id": "blockfrost:size",
+      "@type": "xsd:integer"
+    },
+    "tx_count": {
+      "@id": "blockfrost:tx_count",
+      "@type": "xsd:integer"
+    },
+    "output": "blockfrost:output",
+    "fees": "blockfrost:fees",
+    "block_vrf": "blockfrost:block_vrf",
+    "op_cert": "blockfrost:op_cert",
+    "op_cert_counter": "blockfrost:op_cert_counter",
+    "previous_block": "blockfrost:previous_block",
+    "next_block": "blockfrost:next_block",
+    "confirmations": {
+      "@id": "blockfrost:confirmations",
+      "@type": "xsd:integer"
+    },
+    "active_slots_coefficient": {
+      "@id": "blockfrost:active_slots_coefficient",
+      "@type": "xsd:decimal"
+    },
+    "update_quorum": {
+      "@id": "blockfrost:update_quorum",
+      "@type": "xsd:integer"
+    },
+    "max_lovelace_supply": "blockfrost:max_lovelace_supply",
+    "network_magic": {
+      "@id": "blockfrost:network_magic",
+      "@type": "xsd:integer"
+    },
+    "epoch_length": {
+      "@id": "blockfrost:epoch_length",
+      "@type": "xsd:integer"
+    },
+    "system_start": {
+      "@id": "blockfrost:system_start",
+      "@type": "xsd:integer"
+    },
+    "slots_per_kes_period": {
+      "@id": "blockfrost:slots_per_kes_period",
+      "@type": "xsd:integer"
+    },
+    "slot_length": {
+      "@id": "blockfrost:slot_length",
+      "@type": "xsd:integer"
+    },
+    "max_kes_evolutions": {
+      "@id": "blockfrost:max_kes_evolutions",
+      "@type": "xsd:integer"
+    },
+    "security_param": {
+      "@id": "blockfrost:security_param",
+      "@type": "xsd:integer"
+    },
+    "gov_action_id": "blockfrost:gov_action_id",
+    "proposal_tx_hash": "blockfrost:proposal_tx_hash",
+    "proposal_index": {
+      "@id": "blockfrost:proposal_index",
+      "@type": "xsd:integer"
+    },
+    "is_dissolved": "blockfrost:is_dissolved",
+    "quorum": "blockfrost:quorum",
+    "members": {
+      "@id": "blockfrost:members",
+      "@container": "@set"
+    },
+    "drep_id": "blockfrost:drep_id",
+    "hex": "blockfrost:hex",
+    "amount": "blockfrost:amount",
+    "active": "blockfrost:active",
+    "active_epoch": {
+      "@id": "blockfrost:active_epoch",
+      "@type": "xsd:integer"
+    },
+    "has_script": "blockfrost:has_script",
+    "retired": "blockfrost:retired",
+    "expired": "blockfrost:expired",
+    "last_active_epoch": {
+      "@id": "blockfrost:last_active_epoch",
+      "@type": "xsd:integer"
+    },
+    "url": "blockfrost:url",
+    "json_metadata": "blockfrost:json_metadata",
+    "bytes": "blockfrost:bytes",
+    "error": "blockfrost:error",
+    "id": "blockfrost:id",
+    "tx_hash": "blockfrost:tx_hash",
+    "cert_index": {
+      "@id": "blockfrost:cert_index",
+      "@type": "xsd:integer"
+    },
+    "governance_type": "blockfrost:governance_type",
+    "governance_description": "blockfrost:governance_description",
+    "deposit": "blockfrost:deposit",
+    "return_address": "blockfrost:return_address",
+    "ratified_epoch": {
+      "@id": "blockfrost:ratified_epoch",
+      "@type": "xsd:integer"
+    },
+    "enacted_epoch": {
+      "@id": "blockfrost:enacted_epoch",
+      "@type": "xsd:integer"
+    },
+    "dropped_epoch": {
+      "@id": "blockfrost:dropped_epoch",
+      "@type": "xsd:integer"
+    },
+    "expired_epoch": {
+      "@id": "blockfrost:expired_epoch",
+      "@type": "xsd:integer"
+    },
+    "expiration": {
+      "@id": "blockfrost:expiration",
+      "@type": "xsd:integer"
+    },
+    "parameters": "blockfrost:parameters",
+    "start_time": {
+      "@id": "blockfrost:start_time",
+      "@type": "xsd:integer"
+    },
+    "end_time": {
+      "@id": "blockfrost:end_time",
+      "@type": "xsd:integer"
+    },
+    "first_block_time": {
+      "@id": "blockfrost:first_block_time",
+      "@type": "xsd:integer"
+    },
+    "last_block_time": {
+      "@id": "blockfrost:last_block_time",
+      "@type": "xsd:integer"
+    },
+    "block_count": {
+      "@id": "blockfrost:block_count",
+      "@type": "xsd:integer"
+    },
+    "active_stake": "blockfrost:active_stake",
+    "min_fee_a": {
+      "@id": "blockfrost:min_fee_a",
+      "@type": "xsd:integer"
+    },
+    "min_fee_b": {
+      "@id": "blockfrost:min_fee_b",
+      "@type": "xsd:integer"
+    },
+    "max_block_size": {
+      "@id": "blockfrost:max_block_size",
+      "@type": "xsd:integer"
+    },
+    "max_tx_size": {
+      "@id": "blockfrost:max_tx_size",
+      "@type": "xsd:integer"
+    },
+    "max_block_header_size": {
+      "@id": "blockfrost:max_block_header_size",
+      "@type": "xsd:integer"
+    },
+    "key_deposit": "blockfrost:key_deposit",
+    "pool_deposit": "blockfrost:pool_deposit",
+    "e_max": {
+      "@id": "blockfrost:e_max",
+      "@type": "xsd:integer"
+    },
+    "n_opt": {
+      "@id": "blockfrost:n_opt",
+      "@type": "xsd:integer"
+    },
+    "a0": {
+      "@id": "blockfrost:a0",
+      "@type": "xsd:decimal"
+    },
+    "rho": {
+      "@id": "blockfrost:rho",
+      "@type": "xsd:decimal"
+    },
+    "tau": {
+      "@id": "blockfrost:tau",
+      "@type": "xsd:decimal"
+    },
+    "decentralisation_param": {
+      "@id": "blockfrost:decentralisation_param",
+      "@type": "xsd:decimal"
+    },
+    "extra_entropy": "blockfrost:extra_entropy",
+    "protocol_major_ver": {
+      "@id": "blockfrost:protocol_major_ver",
+      "@type": "xsd:integer"
+    },
+    "protocol_minor_ver": {
+      "@id": "blockfrost:protocol_minor_ver",
+      "@type": "xsd:integer"
+    },
+    "min_utxo": "blockfrost:min_utxo",
+    "min_pool_cost": "blockfrost:min_pool_cost",
+    "nonce": "blockfrost:nonce",
+    "cost_models": "blockfrost:cost_models",
+    "cost_models_raw": "blockfrost:cost_models_raw",
+    "price_mem": {
+      "@id": "blockfrost:price_mem",
+      "@type": "xsd:decimal"
+    },
+    "price_step": {
+      "@id": "blockfrost:price_step",
+      "@type": "xsd:decimal"
+    },
+    "max_tx_ex_mem": "blockfrost:max_tx_ex_mem",
+    "max_tx_ex_steps": "blockfrost:max_tx_ex_steps",
+    "max_block_ex_mem": "blockfrost:max_block_ex_mem",
+    "max_block_ex_steps": "blockfrost:max_block_ex_steps",
+    "max_val_size": "blockfrost:max_val_size",
+    "collateral_percent": {
+      "@id": "blockfrost:collateral_percent",
+      "@type": "xsd:integer"
+    },
+    "max_collateral_inputs": {
+      "@id": "blockfrost:max_collateral_inputs",
+      "@type": "xsd:integer"
+    },
+    "coins_per_utxo_size": "blockfrost:coins_per_utxo_size",
+    "coins_per_utxo_word": "blockfrost:coins_per_utxo_word",
+    "pvt_motion_no_confidence": {
+      "@id": "blockfrost:pvt_motion_no_confidence",
+      "@type": "xsd:decimal"
+    },
+    "pvt_committee_normal": {
+      "@id": "blockfrost:pvt_committee_normal",
+      "@type": "xsd:decimal"
+    },
+    "pvt_committee_no_confidence": {
+      "@id": "blockfrost:pvt_committee_no_confidence",
+      "@type": "xsd:decimal"
+    },
+    "pvt_hard_fork_initiation": {
+      "@id": "blockfrost:pvt_hard_fork_initiation",
+      "@type": "xsd:decimal"
+    },
+    "dvt_motion_no_confidence": {
+      "@id": "blockfrost:dvt_motion_no_confidence",
+      "@type": "xsd:decimal"
+    },
+    "dvt_committee_normal": {
+      "@id": "blockfrost:dvt_committee_normal",
+      "@type": "xsd:decimal"
+    },
+    "dvt_committee_no_confidence": {
+      "@id": "blockfrost:dvt_committee_no_confidence",
+      "@type": "xsd:decimal"
+    },
+    "dvt_update_to_constitution": {
+      "@id": "blockfrost:dvt_update_to_constitution",
+      "@type": "xsd:decimal"
+    },
+    "dvt_hard_fork_initiation": {
+      "@id": "blockfrost:dvt_hard_fork_initiation",
+      "@type": "xsd:decimal"
+    },
+    "dvt_p_p_network_group": {
+      "@id": "blockfrost:dvt_p_p_network_group",
+      "@type": "xsd:decimal"
+    },
+    "dvt_p_p_economic_group": {
+      "@id": "blockfrost:dvt_p_p_economic_group",
+      "@type": "xsd:decimal"
+    },
+    "dvt_p_p_technical_group": {
+      "@id": "blockfrost:dvt_p_p_technical_group",
+      "@type": "xsd:decimal"
+    },
+    "dvt_p_p_gov_group": {
+      "@id": "blockfrost:dvt_p_p_gov_group",
+      "@type": "xsd:decimal"
+    },
+    "dvt_treasury_withdrawal": {
+      "@id": "blockfrost:dvt_treasury_withdrawal",
+      "@type": "xsd:decimal"
+    },
+    "committee_min_size": "blockfrost:committee_min_size",
+    "committee_max_term_length": "blockfrost:committee_max_term_length",
+    "gov_action_lifetime": "blockfrost:gov_action_lifetime",
+    "gov_action_deposit": "blockfrost:gov_action_deposit",
+    "drep_deposit": "blockfrost:drep_deposit",
+    "drep_activity": "blockfrost:drep_activity",
+    "pvtpp_security_group": {
+      "@id": "blockfrost:pvtpp_security_group",
+      "@type": "xsd:decimal"
+    },
+    "pvt_p_p_security_group": {
+      "@id": "blockfrost:pvt_p_p_security_group",
+      "@type": "xsd:decimal"
+    },
+    "min_fee_ref_script_cost_per_byte": {
+      "@id": "blockfrost:min_fee_ref_script_cost_per_byte",
+      "@type": "xsd:decimal"
+    },
+    "block": "blockfrost:block",
+    "block_height": {
+      "@id": "blockfrost:block_height",
+      "@type": "xsd:integer"
+    },
+    "block_time": {
+      "@id": "blockfrost:block_time",
+      "@type": "xsd:integer"
+    },
+    "index": {
+      "@id": "blockfrost:index",
+      "@type": "xsd:integer"
+    },
+    "output_amount": {
+      "@id": "blockfrost:output_amount",
+      "@container": "@set"
+    },
+    "invalid_before": "blockfrost:invalid_before",
+    "invalid_hereafter": "blockfrost:invalid_hereafter",
+    "utxo_count": {
+      "@id": "blockfrost:utxo_count",
+      "@type": "xsd:integer"
+    },
+    "withdrawal_count": {
+      "@id": "blockfrost:withdrawal_count",
+      "@type": "xsd:integer"
+    },
+    "mir_cert_count": {
+      "@id": "blockfrost:mir_cert_count",
+      "@type": "xsd:integer"
+    },
+    "delegation_count": {
+      "@id": "blockfrost:delegation_count",
+      "@type": "xsd:integer"
+    },
+    "stake_cert_count": {
+      "@id": "blockfrost:stake_cert_count",
+      "@type": "xsd:integer"
+    },
+    "pool_update_count": {
+      "@id": "blockfrost:pool_update_count",
+      "@type": "xsd:integer"
+    },
+    "pool_retire_count": {
+      "@id": "blockfrost:pool_retire_count",
+      "@type": "xsd:integer"
+    },
+    "asset_mint_or_burn_count": {
+      "@id": "blockfrost:asset_mint_or_burn_count",
+      "@type": "xsd:integer"
+    },
+    "redeemer_count": {
+      "@id": "blockfrost:redeemer_count",
+      "@type": "xsd:integer"
+    },
+    "valid_contract": "blockfrost:valid_contract",
+    "treasury_donation": "blockfrost:treasury_donation",
+    "inputs": {
+      "@id": "blockfrost:inputs",
+      "@container": "@set"
+    },
+    "outputs": {
+      "@id": "blockfrost:outputs",
+      "@container": "@set"
+    },
+    "cbor": "blockfrost:cbor",
+    "stake_address": "blockfrost:stake_address",
+    "registered": "blockfrost:registered",
+    "controlled_amount": "blockfrost:controlled_amount",
+    "rewards_sum": "blockfrost:rewards_sum",
+    "withdrawals_sum": "blockfrost:withdrawals_sum",
+    "reserves_sum": "blockfrost:reserves_sum",
+    "treasury_sum": "blockfrost:treasury_sum",
+    "withdrawable_amount": "blockfrost:withdrawable_amount",
+    "pool_id": "blockfrost:pool_id",
+    "received_sum": {
+      "@id": "blockfrost:received_sum",
+      "@container": "@set"
+    },
+    "sent_sum": {
+      "@id": "blockfrost:sent_sum",
+      "@container": "@set"
+    },
+    "tx": "blockfrost:tx",
+    "redeemers": {
+      "@id": "blockfrost:redeemers",
+      "@container": "@set"
+    },
+    "address": "blockfrost:address",
+    "type": "blockfrost:type",
+    "script": "blockfrost:script",
+    "vrf_key": "blockfrost:vrf_key",
+    "blocks_minted": {
+      "@id": "blockfrost:blocks_minted",
+      "@type": "xsd:integer"
+    },
+    "blocks_epoch": {
+      "@id": "blockfrost:blocks_epoch",
+      "@type": "xsd:integer"
+    },
+    "live_stake": "blockfrost:live_stake",
+    "live_size": {
+      "@id": "blockfrost:live_size",
+      "@type": "xsd:decimal"
+    },
+    "live_saturation": {
+      "@id": "blockfrost:live_saturation",
+      "@type": "xsd:decimal"
+    },
+    "live_delegators": {
+      "@id": "blockfrost:live_delegators",
+      "@type": "xsd:decimal"
+    },
+    "active_size": {
+      "@id": "blockfrost:active_size",
+      "@type": "xsd:decimal"
+    },
+    "declared_pledge": "blockfrost:declared_pledge",
+    "live_pledge": "blockfrost:live_pledge",
+    "margin_cost": {
+      "@id": "blockfrost:margin_cost",
+      "@type": "xsd:decimal"
+    },
+    "fixed_cost": "blockfrost:fixed_cost",
+    "reward_account": "blockfrost:reward_account",
+    "owners": {
+      "@id": "blockfrost:owners",
+      "@container": "@set"
+    },
+    "registration": {
+      "@id": "blockfrost:registration",
+      "@container": "@set"
+    },
+    "retirement": {
+      "@id": "blockfrost:retirement",
+      "@container": "@set"
+    },
+    "calidus_key": "blockfrost:calidus_key",
+    "ticker": "blockfrost:ticker",
+    "name": "blockfrost:name",
+    "description": "blockfrost:description",
+    "homepage": "blockfrost:homepage",
+    "asset": "blockfrost:asset",
+    "policy_id": "blockfrost:policy_id",
+    "asset_name": "blockfrost:asset_name",
+    "fingerprint": "blockfrost:fingerprint",
+    "quantity": "blockfrost:quantity",
+    "initial_mint_tx_hash": "blockfrost:initial_mint_tx_hash",
+    "mint_or_burn_count": {
+      "@id": "blockfrost:mint_or_burn_count",
+      "@type": "xsd:integer"
+    },
+    "onchain_metadata": "blockfrost:onchain_metadata",
+    "onchain_metadata_standard": "blockfrost:onchain_metadata_standard",
+    "onchain_metadata_extra": "blockfrost:onchain_metadata_extra",
+    "metadata": "blockfrost:metadata",
+    "script_hash": "blockfrost:script_hash",
+    "serialised_size": {
+      "@id": "blockfrost:serialised_size",
+      "@type": "xsd:integer"
+    },
+    "json": "blockfrost:json",
+    "json_value": "blockfrost:json_value",
+    "xpub": "blockfrost:xpub",
+    "role": {
+      "@id": "blockfrost:role",
+      "@type": "xsd:integer"
+    },
+    "supply": "blockfrost:supply",
+    "stake": "blockfrost:stake",
+    "metadata_url": "blockfrost:metadata_url",
+    "metadata_hash": "blockfrost:metadata_hash",
+    "image": "blockfrost:image",
+    "mediaType": "blockfrost:mediaType",
+    "files": {
+      "@id": "blockfrost:files",
+      "@container": "@set"
+    },
+    "logo": "blockfrost:logo",
+    "decimals": {
+      "@id": "blockfrost:decimals",
+      "@type": "xsd:decimal"
+    },
+    "open_api_version": "blockfrost:open_api_version",
+    "documentation_url": "blockfrost:documentation_url",
+    "capabilities": "blockfrost:capabilities",
+    "protocol": "blockfrost:protocol",
+    "next_protocol": "blockfrost:next_protocol",
+    "k": {
+      "@id": "blockfrost:k",
+      "@type": "xsd:integer"
+    },
+    "m": {
+      "@id": "blockfrost:m",
+      "@type": "xsd:integer"
+    },
+    "phi_f": {
+      "@id": "blockfrost:phi_f",
+      "@type": "xsd:decimal"
+    },
+    "network": "blockfrost:network",
+    "immutable_file_number": {
+      "@id": "blockfrost:immutable_file_number",
+      "@type": "xsd:integer"
+    },
+    "beacon": "blockfrost:beacon",
+    "entity_type": "blockfrost:entity_type",
+    "signers": {
+      "@id": "blockfrost:signers",
+      "@container": "@set"
+    },
+    "next_signers": {
+      "@id": "blockfrost:next_signers",
+      "@container": "@set"
+    },
+    "party_id": "blockfrost:party_id",
+    "verification_key": "blockfrost:verification_key",
+    "verification_key_signature": "blockfrost:verification_key_signature",
+    "operational_certificate": "blockfrost:operational_certificate",
+    "kes_period": {
+      "@id": "blockfrost:kes_period",
+      "@type": "xsd:integer"
+    },
+    "registered_at": "blockfrost:registered_at",
+    "signing_at": "blockfrost:signing_at",
+    "registrations": {
+      "@id": "blockfrost:registrations",
+      "@container": "@set"
+    },
+    "pool_ticker": "blockfrost:pool_ticker",
+    "has_registered": "blockfrost:has_registered",
+    "signature": "blockfrost:signature",
+    "indexes": {
+      "@id": "blockfrost:indexes",
+      "@container": "@set"
+    },
+    "snapshot_digest": "blockfrost:snapshot_digest",
+    "next_aggregate_verification_key": "blockfrost:next_aggregate_verification_key",
+    "latest_block_number": "blockfrost:latest_block_number",
+    "message_parts": "blockfrost:message_parts",
+    "version": "blockfrost:version",
+    "initiated_at": "blockfrost:initiated_at",
+    "sealed_at": "blockfrost:sealed_at",
+    "total_signers": {
+      "@id": "blockfrost:total_signers",
+      "@type": "xsd:integer"
+    },
+    "previous_hash": "blockfrost:previous_hash",
+    "signed_entity_type": "blockfrost:signed_entity_type",
+    "protocol_message": "blockfrost:protocol_message",
+    "signed_message": "blockfrost:signed_message",
+    "aggregate_verification_key": "blockfrost:aggregate_verification_key",
+    "multi_signature": "blockfrost:multi_signature",
+    "genesis_signature": "blockfrost:genesis_signature",
+    "digest": "blockfrost:digest",
+    "certificate_hash": "blockfrost:certificate_hash",
+    "created_at": "blockfrost:created_at",
+    "locations": {
+      "@id": "blockfrost:locations",
+      "@container": "@set"
+    },
+    "compression_algorithm": "blockfrost:compression_algorithm",
+    "cardano_node_version": "blockfrost:cardano_node_version",
+    "protocol_parameters": "blockfrost:protocol_parameters",
+    "merkle_root": "blockfrost:merkle_root",
+    "block_number": {
+      "@id": "blockfrost:block_number",
+      "@type": "xsd:integer"
+    },
+    "certified_transactions": {
+      "@id": "blockfrost:certified_transactions",
+      "@container": "@set"
+    },
+    "non_certified_transactions": {
+      "@id": "blockfrost:non_certified_transactions",
+      "@container": "@set"
+    },
+    "label": "blockfrost:label",
+    "message": "blockfrost:message"
+  }
+}

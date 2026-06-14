@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/Stake",
+  "title": "Stake",
+  "description": "Stake represents the stakes of a participant in the Cardano chain",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "stake"
+  ],
+  "properties": {
+    "stake": {
+      "description": "Stake share as computed in the 'stake distribution' by the Cardano Node, multiplied by a billion (1.0e9)",
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "example": {
+    "stake": 1234
+  }
+}

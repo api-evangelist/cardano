@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/onchain_metadata_cip68_ft_333",
+  "title": "Onchain Metadata Cip68 Ft 333",
+  "$ref": "#/components/schemas/asset_onchain_metadata_cip68_ft_333"
+}

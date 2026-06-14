@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/RegisterSingleSignatureMessage",
+  "title": "Registersinglesignaturemessage",
+  "description": "This message holds a Signer Single Signature with the\nlist of won indexes in the lottery.\n",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "entity_type",
+    "party_id",
+    "signature",
+    "indexes"
+  ],
+  "properties": {
+    "entity_type": {
+      "$ref": "#/components/schemas/SignedEntityType"
+    },
+    "party_id": {
+      "description": "The unique identifier of the signer",
+      "type": "string"
+    },
+    "signature": {
+      "description": "The single signature of the digest",
+      "type": "string",
+      "format": "byte"
+    },
+    "indexes": {
+      "description": "The indexes of the lottery won that lead to the single signature",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int64"
+      }
+    }
+  },
+  "example": {
+    "entity_type": {
+      "MithrilStakeDistribution": 246
+    },
+    "party_id": "1234567890",
+    "signature": "7b2c36322c3130352c3232322c31302c3131302c33312c37312c39372c22766b223a5b3136342c2c31393137352c313834",
+    "indexes": [
+      25,
+      35
+    ]
+  }
+}

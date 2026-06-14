@@ -1,0 +1,8 @@
+[
+  {
+    "id": "string",
+    "tx_hash": "string",
+    "cert_index": 0,
+    "governance_type": "hard_fork_initiation"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "entity_type": {},
+  "party_id": "string",
+  "signature": "string",
+  "indexes": [
+    0
+  ]
+}

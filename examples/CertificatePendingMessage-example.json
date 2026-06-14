@@ -1,0 +1,21 @@
+{
+  "epoch": 0,
+  "beacon": {},
+  "entity_type": {},
+  "protocol": {
+    "k": 0,
+    "m": 0,
+    "phi_f": 0.0
+  },
+  "next_protocol": {
+    "k": 0,
+    "m": 0,
+    "phi_f": 0.0
+  },
+  "signers": [
+    {}
+  ],
+  "next_signers": [
+    {}
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/script_datum",
+  "title": "Script Datum",
+  "type": "object",
+  "properties": {
+    "json_value": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "JSON content of the datum"
+    }
+  },
+  "required": [
+    "json_value"
+  ],
+  "example": {
+    "json_value": {
+      "int": 42
+    }
+  }
+}

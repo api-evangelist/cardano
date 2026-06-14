@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/SignerRegistrationsListItemMessage",
+  "title": "Signerregistrationslistitemmessage",
+  "description": "represents an item of a SignerRegistrationsMessage registration",
+  "type": "object",
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Stake"
+    }
+  ],
+  "properties": {
+    "party_id": {
+      "description": "The unique identifier of the signer",
+      "type": "string"
+    }
+  }
+}

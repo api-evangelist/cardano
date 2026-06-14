@@ -1,0 +1,22 @@
+{
+  "gov_action_id": "string",
+  "proposal_tx_hash": "string",
+  "proposal_index": 0,
+  "is_dissolved": true,
+  "quorum": {
+    "numerator": 0,
+    "denominator": 0
+  },
+  "members": [
+    {
+      "cc_cold_id": "string",
+      "cc_cold_hex": "string",
+      "cc_cold_has_script": true,
+      "cc_hot_id": "string",
+      "cc_hot_hex": "string",
+      "cc_hot_has_script": true,
+      "status": "authorized",
+      "expiration_epoch": 0
+    }
+  ]
+}

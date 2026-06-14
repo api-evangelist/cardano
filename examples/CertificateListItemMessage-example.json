@@ -1,0 +1,17 @@
+{
+  "hash": "string",
+  "previous_hash": "string",
+  "epoch": 0,
+  "beacon": {},
+  "signed_entity_type": {},
+  "metadata": {
+    "network": "string",
+    "version": "string",
+    "initiated_at": "2023-01-01T00:00:00Z",
+    "sealed_at": "2023-01-01T00:00:00Z",
+    "total_signers": 0
+  },
+  "protocol_message": {},
+  "signed_message": "string",
+  "aggregate_verification_key": "string"
+}

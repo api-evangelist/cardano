@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/Signer",
+  "title": "Signer",
+  "description": "Signer represents a signing participant in the network",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "party_id",
+    "verification_key"
+  ],
+  "properties": {
+    "party_id": {
+      "description": "The unique identifier of the signer",
+      "type": "string"
+    },
+    "verification_key": {
+      "description": "The public key used to authenticate signer signature",
+      "type": "string",
+      "format": "byte"
+    },
+    "verification_key_signature": {
+      "description": "The signature of the verification_key (signed by the Cardano node KES secret key)",
+      "type": "string",
+      "format": "byte"
+    },
+    "operational_certificate": {
+      "description": "The operational certificate of the stake pool operator attached to the signer node",
+      "type": "string",
+      "format": "byte"
+    },
+    "kes_period": {
+      "description": "The number of updates of the KES secret key that signed the verification key",
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "example": {
+    "party_id": "1234567890",
+    "verification_key": "7b12766b223a5c342b39302c32392c39392c39382c3131313138342c32252c32352c31353",
+    "verification_key_signature": "7b5473693727369676d61223a7b227369676d6d61223a7b261223a9b227369676d61213a",
+    "operational_certificate": "5b73136372c38302c37342c3136362c313535b5b3232352c3230332c3235352c313030262c38322c39382c32c39332c3138342c3135362c3136362c32312c3131312c3232312c36332c3137372c3232332c3232332c31392c3537",
+    "kes_period": 123
+  }
+}

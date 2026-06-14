@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/CertificateListItemMessageMetadata",
+  "title": "Certificatelistitemmessagemetadata",
+  "description": "CertificateListItemMessageMetadata represents the metadata associated to a CertificateListItemMessage",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "network",
+    "version",
+    "parameters",
+    "initiated_at",
+    "sealed_at",
+    "total_signers"
+  ],
+  "properties": {
+    "network": {
+      "description": "Cardano network",
+      "type": "string"
+    },
+    "version": {
+      "description": "Version of the protocol",
+      "type": "string",
+      "format": "bytes"
+    },
+    "parameters": {
+      "$ref": "#/components/schemas/ProtocolParameters"
+    },
+    "initiated_at": {
+      "description": "Date and time at which the certificate was initialized and ready to accept single signatures from signers",
+      "type": "string",
+      "format": "date-time"
+    },
+    "sealed_at": {
+      "description": "Date and time at which the certificate was sealed (when the quorum of single signatures was reached so that a multi signature could be aggregated from them)",
+      "type": "string",
+      "format": "date-time"
+    },
+    "total_signers": {
+      "description": "The number of the signers with their stakes and verification keys",
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "example": {
+    "network": "mainnet",
+    "version": "0.1.0",
+    "parameters": {
+      "k": 5,
+      "m": 100,
+      "phi_f": 0.65
+    },
+    "initiated_at": "2022-07-17T18:51:23.192811338Z",
+    "sealed_at": "2022-07-17T18:51:35.830832580Z",
+    "total_signers": 3
+  }
+}

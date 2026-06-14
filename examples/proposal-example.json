@@ -1,0 +1,14 @@
+{
+  "id": "string",
+  "tx_hash": "string",
+  "cert_index": 0,
+  "governance_type": "hard_fork_initiation",
+  "governance_description": {},
+  "deposit": "string",
+  "return_address": "string",
+  "ratified_epoch": 0,
+  "enacted_epoch": 0,
+  "dropped_epoch": 0,
+  "expired_epoch": 0,
+  "expiration": 0
+}

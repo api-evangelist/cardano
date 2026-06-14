@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/SignerRegistrationsMessage",
+  "title": "Signerregistrationsmessage",
+  "description": "This message holds the registered signers at a given epoch.\n",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "registered_at": {
+      "$ref": "#/components/schemas/Epoch"
+    },
+    "signing_at": {
+      "$ref": "#/components/schemas/Epoch"
+    },
+    "registrations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SignerRegistrationsListItemMessage"
+      }
+    }
+  },
+  "example": {
+    "registered_at": 420,
+    "signing_at": 422,
+    "registrations": [
+      {
+        "party_id": "1234567890",
+        "stake": 1234
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "tx_hash": "string",
+    "voter_hot_id": "string",
+    "proposal_id": "string",
+    "proposal_tx_hash": "string",
+    "proposal_index": 0,
+    "governance_type": "hard_fork_initiation",
+    "vote": "yes",
+    "metadata_url": "string",
+    "metadata_hash": "string",
+    "block_height": 0,
+    "block_time": 0
+  }
+]

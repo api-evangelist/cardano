@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/SignerTickerListItemMessage",
+  "title": "Signertickerlistitemmessage",
+  "description": "represents a known signer with its pool ticker",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "party_id",
+    "has_registered"
+  ],
+  "properties": {
+    "party_id": {
+      "description": "The unique identifier of the signer",
+      "type": "string"
+    },
+    "pool_ticker": {
+      "description": "The signer pool ticker",
+      "type": "string"
+    },
+    "has_registered": {
+      "description": "The signer has registered at least once",
+      "type": "boolean"
+    }
+  },
+  "example": {
+    "party_id": "pool1234567890",
+    "pool_ticker": "[Pool_Name]",
+    "has_registered": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "blockfrost": "https://blockfrost.io/ontology/"
+  },
+  "@type": "WebAPI",
+  "@id": "https://blockfrost.io",
+  "name": "Blockfrost Cardano API",
+  "description": "Blockfrost is an API as a service that allows users to interact with the Cardano blockchain, Midnight blockchain, and parts of their ecosystems.\n\n## Tokens\n\nAfter signing up on https://blockfrost.io, a `project_id` token is automatically generated for each project.\nHTTP header of your request MUST include this `project_id` in order to authenticate against Blockfrost servers.\n\n## Available networks\n\nAt the moment, you can use the following networks. Please, note that each network has its own `pro",
+  "url": "https://blockfrost.dev",
+  "documentation": "https://docs.blockfrost.io",
+  "version": "0.1.89",
+  "license": "https://opensource.org/licenses/MIT",
+  "termsOfService": "https://blockfrost.io/terms",
+  "endpointCount": 127,
+  "schemaCount": 141
+}

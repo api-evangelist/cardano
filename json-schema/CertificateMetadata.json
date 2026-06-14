@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/CertificateMetadata",
+  "title": "Certificatemetadata",
+  "description": "CertificateMetadata represents the metadata associated to a Certificate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "network",
+    "version",
+    "parameters",
+    "initiated_at",
+    "sealed_at",
+    "signers"
+  ],
+  "properties": {
+    "network": {
+      "description": "Cardano network",
+      "type": "string"
+    },
+    "version": {
+      "description": "Version of the protocol",
+      "type": "string",
+      "format": "bytes"
+    },
+    "parameters": {
+      "$ref": "#/components/schemas/ProtocolParameters"
+    },
+    "initiated_at": {
+      "description": "Date and time at which the certificate was initialized and ready to accept single signatures from signers",
+      "type": "string",
+      "format": "date-time"
+    },
+    "sealed_at": {
+      "description": "Date and time at which the certificate was sealed (when the quorum of single signatures was reached so that a multi signature could be aggregated from them)",
+      "type": "string",
+      "format": "date-time"
+    },
+    "signers": {
+      "description": "The list of the signers identifiers with their stakes and verification keys",
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/StakeDistributionParty"
+      }
+    }
+  },
+  "example": {
+    "network": "mainnet",
+    "version": "0.1.0",
+    "parameters": {
+      "k": 5,
+      "m": 100,
+      "phi_f": 0.65
+    },
+    "initiated_at": "2022-07-17T18:51:23.192811338Z",
+    "sealed_at": "2022-07-17T18:51:35.830832580Z",
+    "signers": [
+      {
+        "party_id": "1234567890",
+        "stake": 1234
+      },
+      {
+        "party_id": "2345678900",
+        "stake": 2345
+      }
+    ]
+  }
+}

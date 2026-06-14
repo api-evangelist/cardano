@@ -1,0 +1,12 @@
+{
+  "open_api_version": "string",
+  "documentation_url": "string",
+  "capabilities": {
+    "signed_entity_types": [
+      "MithrilStakeDistribution"
+    ],
+    "cardano_transactions_prover": {
+      "max_hashes_allowed_by_request": 0
+    }
+  }
+}

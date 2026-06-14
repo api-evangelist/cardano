@@ -1,0 +1,7 @@
+[
+  {
+    "tx_hash": "string",
+    "action": "minted",
+    "amount": "string"
+  }
+]

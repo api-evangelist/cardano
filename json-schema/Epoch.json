@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/Epoch",
+  "title": "Epoch",
+  "description": "Cardano chain epoch number",
+  "type": "integer",
+  "format": "int64"
+}

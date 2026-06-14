@@ -1,0 +1,8 @@
+{
+  "hash": "string",
+  "certificate_hash": "string",
+  "merkle_root": "string",
+  "epoch": 0,
+  "block_number": 0,
+  "created_at": "string"
+}

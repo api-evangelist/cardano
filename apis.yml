@@ -42,6 +42,8 @@ apis:
         type: Documentation
       - url: https://docs.blockfrost.io/
         type: APIReference
+      - url: openapi/blockfrost-cardano-api-openapi.yml
+        type: OpenAPI
       - url: https://blockfrost.dev/overview/plans-and-billing
         type: Plans
       - url: plans/cardano-plans-pricing.yml

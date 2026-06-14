@@ -1,0 +1,13 @@
+{
+  "certificate_hash": "string",
+  "certified_transactions": [
+    {
+      "transactions_hashes": [],
+      "proof": "string"
+    }
+  ],
+  "non_certified_transactions": [
+    "string"
+  ],
+  "latest_block_number": 0
+}

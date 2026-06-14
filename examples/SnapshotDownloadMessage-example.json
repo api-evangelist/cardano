@@ -1,0 +1,13 @@
+{
+  "digest": "string",
+  "beacon": {
+    "network": "string",
+    "immutable_file_number": 0
+  },
+  "size": 0,
+  "locations": [
+    "string"
+  ],
+  "compression_algorithm": "string",
+  "cardano_node_version": "string"
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "drep_id": "string",
+    "hex": "string",
+    "amount": "string",
+    "has_script": true,
+    "retired": true,
+    "expired": true,
+    "last_active_epoch": 0,
+    "metadata": {
+      "url": "https://stakenuts.com/drep.json",
+      "hash": "69c0c68cb57f4a5b4a87bad896fc274678e7aea98e200fa14a1cb40c0cab1d8c",
+      "json_metadata": {},
+      "bytes": "string",
+      "error": {}
+    }
+  }
+]

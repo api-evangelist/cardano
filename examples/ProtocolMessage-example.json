@@ -1,0 +1,7 @@
+{
+  "message_parts": {
+    "snapshot_digest": "string",
+    "next_aggregate_verification_key": "string",
+    "latest_block_number": "string"
+  }
+}

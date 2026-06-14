@@ -1,0 +1,8 @@
+[
+  {
+    "epoch": 0,
+    "hash": "string",
+    "certificate_hash": "string",
+    "created_at": "string"
+  }
+]

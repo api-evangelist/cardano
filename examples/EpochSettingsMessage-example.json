@@ -1,0 +1,13 @@
+{
+  "epoch": 0,
+  "protocol": {
+    "k": 0,
+    "m": 0,
+    "phi_f": 0.0
+  },
+  "next_protocol": {
+    "k": 0,
+    "m": 0,
+    "phi_f": 0.0
+  }
+}

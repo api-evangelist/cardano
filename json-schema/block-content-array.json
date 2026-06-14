@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/block_content_array",
+  "title": "Block Content Array",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/block_content"
+  }
+}

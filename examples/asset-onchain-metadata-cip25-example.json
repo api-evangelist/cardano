@@ -1,0 +1,13 @@
+{
+  "name": "My NFT token",
+  "image": {},
+  "description": {},
+  "mediaType": "image/jpeg",
+  "files": [
+    {
+      "name": "myimage",
+      "mediaType": "image/jpeg",
+      "src": {}
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cardano.blockfrost.io/schema/SignedEntityType",
+  "title": "Signedentitytype",
+  "description": "Entity type of the message that is signed",
+  "type": "object",
+  "additionalProperties": true,
+  "example": {
+    "MithrilStakeDistribution": 246
+  }
+}
