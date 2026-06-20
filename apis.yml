@@ -9,7 +9,7 @@ tags:
   - Web3
 type: Index
 kind: company
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -34,7 +34,7 @@ apis:
       - Epochs
       - Pools
       - Smart Contracts
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://cardano-mainnet.blockfrost.io/api/v0
     humanURL: https://blockfrost.dev/start-building/cardano/
     properties:
@@ -83,7 +83,7 @@ apis:
       - IPFS
       - Storage
       - Decentralized Storage
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://ipfs.blockfrost.io/api/v0
     humanURL: https://blockfrost.dev/
     properties:
