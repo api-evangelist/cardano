@@ -101,6 +101,13 @@ apis:
       - Pin NFT metadata and media files referenced in Cardano native asset policies
       - Store off-chain data linked from on-chain transaction metadata
       - Retrieve IPFS content via Blockfrost gateway for dApp frontends
+common:
+  - type: DomainSecurity
+    url: security/cardano-domain-security.yml
+  - type: Authentication
+    url: authentication/cardano-authentication.yml
+  - url: https://cardano.org/news/
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
