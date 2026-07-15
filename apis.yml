@@ -102,6 +102,8 @@ apis:
       - Store off-chain data linked from on-chain transaction metadata
       - Retrieve IPFS content via Blockfrost gateway for dApp frontends
 common:
+  - type: AgenticAccess
+    url: agentic-access/cardano-agentic-access.yml
   - type: DomainSecurity
     url: security/cardano-domain-security.yml
   - type: Authentication
