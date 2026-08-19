@@ -1,6 +1,7 @@
 aid: cardano
 url: https://raw.githubusercontent.com/api-evangelist/cardano/refs/heads/main/apis.yml
 name: Cardano
+specificationVersion: '0.23'
 tags:
   - Blockchain
   - Cryptocurrency
