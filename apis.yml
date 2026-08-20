@@ -5,6 +5,12 @@ specificationVersion: '0.23'
 tags:
   - Blockchain
   - Cryptocurrency
+  - Proof of Stake
+  - Smart Contracts
+  - Web3
+tags_raw:
+  - Blockchain
+  - Cryptocurrency
   - Proof-of-Stake
   - Smart Contracts
   - Web3
