@@ -35,17 +35,18 @@ accessModel:
   try_now: true
   public: false
   label: Freemium · Self-serve signup
-  confidence: high
+  confidence: medium
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cardano.png
 access: 3rd-Party
 created: '2026-06-13'
 modified: '2026-06-13'
-position: Consumer
+position: Consuming
 description: >-
   Cardano is a proof-of-stake blockchain platform designed for secure and scalable decentralized applications and smart
   contracts. Developer API access to the Cardano network is provided primarily through Blockfrost, a hosted REST API
