@@ -15,17 +15,17 @@ deliveryModel:
   method: derived
 specificationVersion: '0.23'
 tags:
-  - Blockchain
-  - Cryptocurrency
-  - Proof of Stake
-  - Smart Contracts
-  - Web3
+- Blockchain
+- Cryptocurrency
+- Proof of Stake
+- Smart Contracts
+- Web3
 tags_raw:
-  - Blockchain
-  - Cryptocurrency
-  - Proof-of-Stake
-  - Smart Contracts
-  - Web3
+- Blockchain
+- Cryptocurrency
+- Proof-of-Stake
+- Smart Contracts
+- Web3
 type: Index
 kind: company
 accessModel:
@@ -45,15 +45,15 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cardano.png
 access: 3rd-Party
 created: '2026-06-13'
-modified: '2026-06-13'
+modified: '2026-09-16'
 position: Consuming
-description: >-
-  Cardano is a proof-of-stake blockchain platform designed for secure and scalable decentralized applications and smart
-  contracts. Developer API access to the Cardano network is provided primarily through Blockfrost, a hosted REST API
-  service that exposes over 100 endpoints covering transactions, addresses, assets, blocks, epochs, stake pools,
-  governance, scripts, metadata, and mempool data. Authentication uses project-scoped API keys passed as HTTP headers.
-  Blockfrost operates on Cardano Mainnet, Preview, and Pre-Production testnets, and also supports IPFS storage and the
-  Milkomeda sidechain. SDKs are available for 15+ programming languages.
+description: Cardano is a proof-of-stake blockchain platform designed for secure and scalable decentralized
+  applications and smart contracts. Developer API access to the Cardano network is provided primarily
+  through Blockfrost, a hosted REST API service that exposes over 100 endpoints covering transactions,
+  addresses, assets, blocks, epochs, stake pools, governance, scripts, metadata, and mempool data. Authentication
+  uses project-scoped API keys passed as HTTP headers. Blockfrost operates on Cardano Mainnet, Preview,
+  and Pre-Production testnets, and also supports IPFS storage and the Milkomeda sidechain. SDKs are available
+  for 15+ programming languages.
 apis:
 - aid: cardano:blockfrost-ipfs-api
   name: Blockfrost IPFS API
@@ -71,17 +71,17 @@ apis:
     type: Documentation
   - url: https://blockfrost.dev/overview/plans-and-billing
     type: Plans
-  description: >-
-    Blockfrost also operates as an IPFS provider, enabling developers building on Cardano to pin and retrieve
-    content-addressed files via the InterPlanetary File System. The IPFS API base URL is https://ipfs.blockfrost.io/api/v0
-    and uses the same project_id authentication as the Cardano mainnet API. Storage quota varies by subscription
-    plan, ranging from 100 MB on the free Starter tier to 50,000 MB on the Developer tier.
+  description: Blockfrost also operates as an IPFS provider, enabling developers building on Cardano to
+    pin and retrieve content-addressed files via the InterPlanetary File System. The IPFS API base URL
+    is https://ipfs.blockfrost.io/api/v0 and uses the same project_id authentication as the Cardano mainnet
+    API. Storage quota varies by subscription plan, ranging from 100 MB on the free Starter tier to 50,000
+    MB on the Developer tier.
   x-use-cases:
   - Pin NFT metadata and media files referenced in Cardano native asset policies
   - Store off-chain data linked from on-chain transaction metadata
   - Retrieve IPFS content via Blockfrost gateway for dApp frontends
 - aid: cardano:cardano-cardano-accounts-api
-  name: Cardano Cardano » Accounts API
+  name: Cardano » Accounts API
   description: The Cardano » Accounts API from Cardano — 12 operation(s) for cardano » accounts.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -103,7 +103,7 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-addresses-api
-  name: Cardano Cardano » Addresses API
+  name: Cardano » Addresses API
   description: The Cardano » Addresses API from Cardano — 7 operation(s) for cardano » addresses.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -125,7 +125,7 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-assets-api
-  name: Cardano Cardano » Assets API
+  name: Cardano » Assets API
   description: The Cardano » Assets API from Cardano — 7 operation(s) for cardano » assets.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -147,7 +147,7 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-blocks-api
-  name: Cardano Cardano » Blocks API
+  name: Cardano » Blocks API
   description: The Cardano » Blocks API from Cardano — 11 operation(s) for cardano » blocks.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -169,7 +169,7 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-epochs-api
-  name: Cardano Cardano » Epochs API
+  name: Cardano » Epochs API
   description: The Cardano » Epochs API from Cardano — 10 operation(s) for cardano » epochs.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -191,7 +191,7 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-governance-api
-  name: Cardano Cardano » Governance API
+  name: Cardano » Governance API
   description: The Cardano » Governance API from Cardano — 20 operation(s) for cardano » governance.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -213,7 +213,7 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-ledger-api
-  name: Cardano Cardano » Ledger API
+  name: Cardano » Ledger API
   description: The Cardano » Ledger API from Cardano — 1 operation(s) for cardano » ledger.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -235,7 +235,7 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-mempool-api
-  name: Cardano Cardano » Mempool API
+  name: Cardano » Mempool API
   description: The Cardano » Mempool API from Cardano — 3 operation(s) for cardano » mempool.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -257,7 +257,7 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-metadata-api
-  name: Cardano Cardano » Metadata API
+  name: Cardano » Metadata API
   description: The Cardano » Metadata API from Cardano — 3 operation(s) for cardano » metadata.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -279,7 +279,7 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-network-api
-  name: Cardano Cardano » Network API
+  name: Cardano » Network API
   description: The Cardano » Network API from Cardano — 2 operation(s) for cardano » network.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -301,7 +301,7 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-pools-api
-  name: Cardano Cardano » Pools API
+  name: Cardano » Pools API
   description: The Cardano » Pools API from Cardano — 12 operation(s) for cardano » pools.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -323,7 +323,7 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-scripts-api
-  name: Cardano Cardano » Scripts API
+  name: Cardano » Scripts API
   description: The Cardano » Scripts API from Cardano — 7 operation(s) for cardano » scripts.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -345,9 +345,8 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-transactions-api
-  name: Cardano Cardano » Transactions API
-  description: >-
-    The Cardano » Transactions API from Cardano — 14 operation(s) for cardano » transactions.
+  name: Cardano » Transactions API
+  description: The Cardano » Transactions API from Cardano — 14 operation(s) for cardano » transactions.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
   tags:
@@ -368,7 +367,7 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 - aid: cardano:cardano-cardano-utilities-api
-  name: Cardano Cardano » Utilities API
+  name: Cardano » Utilities API
   description: The Cardano » Utilities API from Cardano — 3 operation(s) for cardano » utilities.
   humanURL: https://blockfrost.dev/start-building/cardano/
   baseURL: https://cardano-mainnet.blockfrost.io/api/v0
@@ -522,14 +521,14 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 common:
-  - type: AgenticAccess
-    url: agentic-access/cardano-agentic-access.yml
-  - type: DomainSecurity
-    url: security/cardano-domain-security.yml
-  - type: Authentication
-    url: authentication/cardano-authentication.yml
-  - url: https://cardano.org/news/
-    type: Blog
+- type: AgenticAccess
+  url: agentic-access/cardano-agentic-access.yml
+- type: DomainSecurity
+  url: security/cardano-domain-security.yml
+- type: Authentication
+  url: authentication/cardano-authentication.yml
+- url: https://cardano.org/news/
+  type: Blog
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
