@@ -15,6 +15,7 @@ deliveryModel:
   method: derived
 specificationVersion: '0.23'
 tags:
+- Cardano
 - Blockchain
 - Cryptocurrency
 - Proof of Stake
