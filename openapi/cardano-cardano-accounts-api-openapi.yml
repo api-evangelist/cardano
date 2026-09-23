@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   version: 0.1.89
   title: Blockfrost.io ~ API Documentation Cardano » Accounts API
@@ -13,7 +13,7 @@ info:
     name: MIT
     url: https://opensource.org/licenses/MIT
   termsOfService: https://blockfrost.io/terms
-  description: "Blockfrost is an API as a service that allows users to interact with the Cardano blockchain, Midnight blockchain, and parts of their ecosystems.\n\n## Tokens\n\nAfter signing up on https://blockfrost.io, a `project_id` token is automatically generated for each project.\nHTTP header of your request MUST include this `project_id` in order to authenticate against Blockfrost servers.\n\n## Available networks\n\nAt the moment, you can use the following networks. Please, note that each network has its own `project_id`.\n\n<table>\n  <tbody>\n    <tr>\n      <td>\n          <b>Network</b>\n      </td>\n      <td>\n          <b>Endpoint</b>\n      </td>\n    </tr>\n    <tr>\n        <td>Cardano mainnet</td>\n        <td>\n            <code>https://cardano-mainnet.blockfrost.io/api/v0</code>\n        </td>\n    </tr>\n    <tr>\n        <td>Cardano preprod</td>\n        <td>\n            <code>https://cardano-preprod.blockfrost.io/api/v0</code>\n        </td>\n    </tr>\n    <tr>\n        <td>Cardano preview</td>\n        <td>\n            <code>https://cardano-preview.blockfrost.io/api/v0</code>\n        </td>\n    </tr>\n    <tr>\n        <td>Midnight mainnet</td>\n        <td>\n            <code>https://midnight-mainnet.blockfrost.io/api/v0</code>\n        </td>\n    </tr>\n    <tr>\n        <td>InterPlanetary File System</td>\n        <td>\n            <code>https://ipfs.blockfrost.io/api/v0</code>\n        </td>\n    </tr>\n  </tbody>\n</table>\n\n## Concepts\n\n* All endpoints return either a JSON object or an array.\n* Data is returned in *ascending* (oldest first, newest last) order, if not stated otherwise.\n  * You might use the `?order=desc` query parameter to reverse this order.\n* By default, we return 100 results at a time. You have to use `?page=2` to list through the results.\n* All time and timestamp related fields (except `server_time`) are in seconds of UNIX time.\n* All amounts are returned in Lovelaces, where 1 ADA = 1 000 000 Lovelaces.\n* Addresses, accounts and pool IDs are in Bech32 format.\n* All values are case sensitive.\n* All hex encoded values are lower case.\n* Examples are not based on real data. Any resemblance to actual events is purely coincidental.\n* We allow to upload files up to 100MB of size to IPFS. This might increase in the future.\n* Only pinned IPFS files are counted towards the IPFS quota.\n* Non-pinned IPFS files are subject to regular garbage collection and will be removed unless pinned.\n* We allow maximum of 100 queued pins per IPFS user.\n\n## Errors\n\n### HTTP Status codes\n\nThe following are HTTP status code your application might receive when reaching Blockfrost endpoints and\nit should handle all of these cases.\n\n* HTTP `400` return code is used when the request is not valid.\n* HTTP `402` return code is used when the projects exceed their daily request limit.\n* HTTP `403` return code is used when the request is not authenticated.\n* HTTP `404` return code is used when the resource doesn't exist.\n* HTTP `418` return code is used when the user has been auto-banned for flooding too much after previously receiving error code `402` or `429`.\n* HTTP `425` return code is used in Cardano networks, when the user has submitted a transaction when the mempool is already full, not accepting new txs straight away.\n* HTTP `425` return code is used in IPFS network, when the user has submitted a pin when the pin queue is already full, not accepting new pins straight away.\n* HTTP `429` return code is used when the user has sent too many requests in a given amount of time and therefore has been rate-limited.\n* HTTP `500` return code is used when our endpoints are having a problem.\n\n### Error codes\n\nAn internal error code number is used for better indication of the error in question. It is passed using the following payload.\n\n```json\n{\n  \"status_code\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Invalid project token.\"\n}\n```\n## Limits\n\nThere are two types of limits we are enforcing:\n\nThe first depends on your plan and is the number of request we allow per day. We defined the day from midnight to midnight of UTC time.\n\nThe second is rate limiting. We limit an end user, distinguished by IP address, to 10 requests per second. On top of that, we allow\neach user to send burst of 500 requests, which cools off at rate of 10 requests per second. In essence, a user is allowed to make another\nwhole burst after (currently) 500/10 = 50 seconds. E.g. if a user attempts to make a call 3 seconds after whole burst, 30 requests will be processed.\nWe believe this should be sufficient for most of the use cases. If it is not and you have a specific use case, please get in touch with us, and\nwe will make sure to take it into account as much as we can.\n\n## SDKs\n\nWe support a number of SDKs that will help you in developing your application on top of Blockfrost.\n\n<table>\n  <tbody>\n    <tr>\n        <td><b>Programming language</b></td>\n        <td><b>SDK</b></td>\n    </tr>\n    <tr>\n        <td>JavaScript</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-js\">blockfrost-js</a>\n        </td>\n    </tr>\n    <tr>\n        <td>Haskell</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-haskell\">blockfrost-haskell</a>\n        </td>\n    </tr>\n    <tr>\n        <td>Python</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-python\">blockfrost-python</a>\n        </td>\n    </tr>\n    <tr>\n        <td>Rust</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-rust\">blockfrost-rust</a>\n        </td>\n    </tr>\n    <tr>\n        <td>Golang</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-go\">blockfrost-go</a>\n        </td>\n    </tr>\n    <tr>\n        <td>Ruby</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-ruby\">blockfrost-ruby</a>\n        </td>\n    </tr>\n    <tr>\n        <td>Java</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-java\">blockfrost-java</a>\n        </td>\n    </tr>\n    <tr>\n        <td>Scala</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-scala\">blockfrost-scala</a>\n        </td>\n    </tr>\n    <tr>\n        <td>Swift</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-swift\">blockfrost-swift</a>\n        </td>\n    </tr>\n    <tr>\n        <td>Kotlin</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-kotlin\">blockfrost-kotlin</a>\n        </td>\n    </tr>\n    <tr>\n        <td>Elixir</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-elixir\">blockfrost-elixir</a>\n        </td>\n    </tr>\n    <tr>\n        <td>.NET</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-dotnet\">blockfrost-dotnet</a>\n        </td>\n    </tr>\n    <tr>\n        <td>Arduino</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-arduino\">blockfrost-arduino</a>\n        </td>\n    </tr>\n    <tr>\n        <td>PHP</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-php\">blockfrost-php</a>\n        </td>\n    </tr>\n    <tr>\n        <td>Crystal</td>\n        <td>\n            <a href=\"https://github.com/blockfrost/blockfrost-crystal\">blockfrost-crystal</a>\n        </td>\n    </tr>\n  </tbody>\n</table>\n\n\n## Midnight API\n\n\nThe Midnight Indexer API exposes a GraphQL API that enables clients to query and subscribe to blockchain data — blocks, transactions, contracts, and wallet-related events — indexed from the Midnight blockchain.\n\nAvailable networks: `mainnet`, `preprod`, `preview`\n\n| Service | URL | Protocol |\n|---------|-----|----------|\n| **Indexer HTTP API** | `https://midnight-{network}.blockfrost.io/api/v0` | HTTP POST (GraphQL) |\n| **Indexer Subscriptions API** | `wss://midnight-{network}.blockfrost.io/api/v0/ws` | WebSocket |\n| **Node RPC** | `https://rpc.midnight-{network}.blockfrost.io` | JSON-RPC |\n\n\nFor the full documentation — queries, mutations, subscriptions, authentication options, and examples — see the Midnight GraphQL API Reference:\n\n[![Explore the Midnight API →](https://img.shields.io/badge/Explore_the_Midnight_API_→-0033AD?style=for-the-badge)](./midnight/)\n"
+  description: Blockfrost is an API as a service that allows users to interact with the Cardano blockchain, Midnight blockchain, and parts of their ecosystems.
 servers:
 - url: https://cardano-mainnet.blockfrost.io/api/v0
   description: Cardano Mainnet network
@@ -33,9 +33,7 @@ paths:
       tags:
       - Cardano » Accounts
       summary: Specific account address
-      description: 'Obtain information about a specific stake account.
-
-        '
+      description: Obtain information about a specific stake account.
       parameters:
       - in: path
         name: stake_address
@@ -63,14 +61,14 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+      operationId: getAccountsByStakeAddress
+      x-operation-id-source: derived
   /accounts/{stake_address}/rewards:
     get:
       tags:
       - Cardano » Accounts
       summary: Account reward history
-      description: 'Obtain information about the reward history of a specific account.
-
-        '
+      description: Obtain information about the reward history of a specific account.
       parameters:
       - in: path
         name: stake_address
@@ -130,14 +128,14 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+      operationId: getAccountsByStakeAddressRewards
+      x-operation-id-source: derived
   /accounts/{stake_address}/history:
     get:
       tags:
       - Cardano » Accounts
       summary: Account history
-      description: 'Obtain information about the history of a specific account.
-
-        '
+      description: Obtain information about the history of a specific account.
       parameters:
       - in: path
         name: stake_address
@@ -197,6 +195,8 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+      operationId: getAccountsByStakeAddressHistory
+      x-operation-id-source: derived
   /accounts/{stake_address}/delegations:
     get:
       tags:
@@ -262,14 +262,14 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+      operationId: getAccountsByStakeAddressDelegations
+      x-operation-id-source: derived
   /accounts/{stake_address}/registrations:
     get:
       tags:
       - Cardano » Accounts
       summary: Account registration history
-      description: 'Obtain information about the registrations and deregistrations of a specific account.
-
-        '
+      description: Obtain information about the registrations and deregistrations of a specific account.
       parameters:
       - in: path
         name: stake_address
@@ -329,14 +329,14 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+      operationId: getAccountsByStakeAddressRegistrations
+      x-operation-id-source: derived
   /accounts/{stake_address}/withdrawals:
     get:
       tags:
       - Cardano » Accounts
       summary: Account withdrawal history
-      description: 'Obtain information about the withdrawals of a specific account.
-
-        '
+      description: Obtain information about the withdrawals of a specific account.
       parameters:
       - in: path
         name: stake_address
@@ -396,14 +396,14 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+      operationId: getAccountsByStakeAddressWithdrawals
+      x-operation-id-source: derived
   /accounts/{stake_address}/mirs:
     get:
       tags:
       - Cardano » Accounts
       summary: Account MIR history
-      description: 'Obtain information about the MIRs of a specific account.
-
-        '
+      description: Obtain information about the MIRs of a specific account.
       parameters:
       - in: path
         name: stake_address
@@ -463,6 +463,8 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+      operationId: getAccountsByStakeAddressMirs
+      x-operation-id-source: derived
   /accounts/{stake_address}/addresses:
     get:
       tags:
@@ -470,9 +472,7 @@ paths:
       summary: Account associated addresses
       description: 'Obtain information about the addresses of a specific account.
 
-        <b>Be careful</b>, as an account could be part of a mangled address and does not necessarily mean the addresses are owned by user as the account.
-
-        '
+        Be careful, as an account could be part of a mangled address and does not necessarily mean the addresses are owned by user as the account.'
       parameters:
       - in: path
         name: stake_address
@@ -532,6 +532,8 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+      operationId: getAccountsByStakeAddressAddresses
+      x-operation-id-source: derived
   /accounts/{stake_address}/addresses/assets:
     get:
       tags:
@@ -539,9 +541,7 @@ paths:
       summary: Assets associated with the account addresses
       description: 'Obtain information about assets associated with addresses of a specific account.
 
-        <b>Be careful</b>, as an account could be part of a mangled address and does not necessarily mean the addresses are owned by user as the account.
-
-        '
+        Be careful, as an account could be part of a mangled address and does not necessarily mean the addresses are owned by user as the account.'
       parameters:
       - in: path
         name: stake_address
@@ -601,6 +601,8 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+      operationId: getAccountsByStakeAddressAddressesAssets
+      x-operation-id-source: derived
   /accounts/{stake_address}/addresses/total:
     get:
       tags:
@@ -608,9 +610,7 @@ paths:
       summary: Detailed information about account associated addresses
       description: 'Obtain summed details about all addresses associated with a given account.
 
-        <b>Be careful</b>, as an account could be part of a mangled address and does not necessarily mean the addresses are owned by user as the account.
-
-        '
+        Be careful, as an account could be part of a mangled address and does not necessarily mean the addresses are owned by user as the account.'
       parameters:
       - in: path
         name: stake_address
@@ -638,14 +638,14 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+      operationId: getAccountsByStakeAddressAddressesTotal
+      x-operation-id-source: derived
   /accounts/{stake_address}/utxos:
     get:
       tags:
       - Cardano » Accounts
       summary: Account UTXOs
-      description: 'UTXOs associated with the account.
-
-        '
+      description: UTXOs associated with the account.
       parameters:
       - in: path
         name: stake_address
@@ -705,6 +705,8 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+      operationId: getAccountsByStakeAddressUtxos
+      x-operation-id-source: derived
   /accounts/{stake_address}/transactions:
     get:
       tags:
@@ -792,8 +794,50 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+      operationId: getAccountsByStakeAddressTransactions
+      x-operation-id-source: derived
 components:
   responses:
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                example: 400
+              error:
+                type: string
+                example: Bad Request
+              message:
+                type: string
+                example: Backend did not understand your request.
+            required:
+            - error
+            - message
+            - status_code
+    '418':
+      description: IP has been auto-banned for extensive sending of requests after usage limit has been reached
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                example: 418
+              error:
+                type: string
+                example: Requested Banned
+              message:
+                type: string
+                example: IP has been auto-banned for flooding.
+            required:
+            - error
+            - message
+            - status_code
     '500':
       description: Internal Server Error
       content:
@@ -810,26 +854,6 @@ components:
               message:
                 type: string
                 example: An unexpected response was received from the backend.
-            required:
-            - error
-            - message
-            - status_code
-    '429':
-      description: Usage limit reached
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status_code:
-                type: integer
-                example: 429
-              error:
-                type: string
-                example: Project Over Limit
-              message:
-                type: string
-                example: Usage is over limit.
             required:
             - error
             - message
@@ -874,8 +898,8 @@ components:
             - error
             - message
             - status_code
-    '400':
-      description: Bad request
+    '429':
+      description: Usage limit reached
       content:
         application/json:
           schema:
@@ -883,38 +907,69 @@ components:
             properties:
               status_code:
                 type: integer
-                example: 400
+                example: 429
               error:
                 type: string
-                example: Bad Request
+                example: Project Over Limit
               message:
                 type: string
-                example: Backend did not understand your request.
-            required:
-            - error
-            - message
-            - status_code
-    '418':
-      description: IP has been auto-banned for extensive sending of requests after usage limit has been reached
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status_code:
-                type: integer
-                example: 418
-              error:
-                type: string
-                example: Requested Banned
-              message:
-                type: string
-                example: IP has been auto-banned for flooding.
+                example: Usage is over limit.
             required:
             - error
             - message
             - status_code
   schemas:
+    account_reward_content:
+      type: array
+      items:
+        type: object
+        properties:
+          epoch:
+            type: integer
+            description: Epoch of the associated reward
+          amount:
+            type: string
+            description: Rewards for given epoch in Lovelaces
+          pool_id:
+            type: string
+            description: Bech32 pool ID being delegated to
+          type:
+            type: string
+            enum:
+            - leader
+            - member
+            - pool_deposit_refund
+            description: Type of the reward
+        required:
+        - epoch
+        - amount
+        - pool_id
+        - type
+      example:
+      - epoch: 215
+        amount: '12695385'
+        pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
+        type: member
+      - epoch: 216
+        amount: '3586329'
+        pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
+        type: member
+      - epoch: 217
+        amount: '1'
+        pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
+        type: member
+      - epoch: 217
+        amount: '1337'
+        pool_id: pool1cytwr0n7eas6du2h2xshl8ypa1yqr18f0erlhhjcuczysiunjcs
+        type: leader
+      - epoch: 218
+        amount: '1395265'
+        pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
+        type: member
+      - epoch: 218
+        amount: '500000000'
+        pool_id: pool1cytwr0n7eas6du2h2xshl8ypa1yqr18f0erlhhjcuczysiunjcs
+        type: pool_deposit_refund
     account_transactions_content:
       type: array
       items:
@@ -957,6 +1012,114 @@ components:
         tx_index: 6
         block_height: 7900557
         block_time: 1666118180
+    account_addresses_assets:
+      type: array
+      items:
+        type: object
+        description: The sum of all assets of all addresses associated with a given account
+        properties:
+          unit:
+            type: string
+            format: Concatenation of asset policy_id and hex-encoded asset_name
+            description: The unit of the value
+          quantity:
+            type: string
+            description: The quantity of the unit
+        required:
+        - unit
+        - quantity
+      example:
+      - unit: d5e6bf0500378d4f0da4e8dde6becec7621cd8cbf5cbb9b87013d4cc537061636542756433343132
+        quantity: '1'
+      - unit: b0d07d45fe9514f80213f4020e5a61241458be626841cde717cb38a76e7574636f696e
+        quantity: '125'
+    account_withdrawal_content:
+      type: array
+      items:
+        type: object
+        properties:
+          tx_hash:
+            type: string
+            description: Hash of the transaction containing the withdrawal
+          amount:
+            type: string
+            description: Withdrawal amount in Lovelaces
+          tx_slot:
+            type: integer
+            description: Slot of the transaction containing the withdrawal
+          block_time:
+            type: integer
+            description: Block creation time in UNIX time of the transaction containing the withdrawal
+          block_height:
+            type: integer
+            description: Block height of the transaction containing the withdrawal
+        required:
+        - tx_hash
+        - amount
+        - tx_slot
+        - block_time
+        - block_height
+      example:
+      - tx_hash: 48a9625c841eea0dd2bb6cf551eabe6523b7290c9ce34be74eedef2dd8f7ecc5
+        amount: '454541212442'
+        tx_slot: 45093580
+        block_time: 1646437200
+        block_height: 6745358
+      - tx_hash: 4230b0cbccf6f449f0847d8ad1d634a7a49df60d8c142bb8cc2dbc8ca03d9e34
+        amount: '97846969'
+        tx_slot: 48093580
+        block_time: 1649033600
+        block_height: 7126896
+    account_delegation_content:
+      type: array
+      items:
+        type: object
+        properties:
+          active_epoch:
+            type: integer
+            example: 210
+            description: Epoch in which the delegation becomes active
+          tx_hash:
+            type: string
+            description: Hash of the transaction containing the delegation
+          amount:
+            type: string
+            description: Rewards for given epoch in Lovelaces
+          pool_id:
+            type: string
+            description: Bech32 ID of pool being delegated to
+          tx_slot:
+            type: integer
+            description: Slot of the transaction containing the delegation
+          block_time:
+            type: integer
+            description: Block creation time in UNIX time of the transaction containing the delegation
+          block_height:
+            type: integer
+            description: Block height of the transaction containing the delegation
+        required:
+        - active_epoch
+        - tx_hash
+        - amount
+        - pool_id
+        - tx_slot
+        - block_time
+        - block_height
+      example:
+      - active_epoch: 210
+        tx_hash: 2dd15e0ef6e6a17841cb9541c27724072ce4d4b79b91e58432fbaa32d9572531
+        amount: '12695385'
+        pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
+        tx_slot: 45093580
+        block_time: 1646437200
+        block_height: 6745358
+      - active_epoch: 242
+        tx_hash: 1a0570af966fb355a7160e4f82d5a80b8681b7955f5d44bec0dde628516157f0
+        amount: '12691385'
+        pool_id: pool1kchver88u3kygsak8wgll7htr8uxn5v35lfrsyy842nkscrzyvj
+        tx_slot: 48093580
+        block_time: 1649033600
+        block_height: 7126896
     account_addresses_total:
       type: object
       properties:
@@ -1030,8 +1193,9 @@ components:
             - deregistered
             description: Action in the certificate
           deposit:
-            type: string
-            nullable: true
+            type:
+            - string
+            - 'null'
             description: Deposit in Lovelaces paid at this registration. `null` on `deregistered` rows.
           tx_slot:
             type: integer
@@ -1078,8 +1242,9 @@ components:
           example: true
           description: Registration state of an account
         active_epoch:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           example: 412
           description: Epoch of the most recent action - registration or deregistration
         controlled_amount:
@@ -1107,13 +1272,15 @@ components:
           example: '319154618165'
           description: Sum of available rewards that haven't been withdrawn yet for the account in the Lovelaces
         pool_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
           description: Bech32 pool ID to which this account is delegated
         drep_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: drep15cfxz9exyn5rx0807zvxfrvslrjqfchrd4d47kv9e0f46uedqtc
           description: Bech32 drep ID to which this account is delegated
       required:
@@ -1129,6 +1296,21 @@ components:
       - withdrawable_amount
       - pool_id
       - drep_id
+    account_addresses_content:
+      type: array
+      items:
+        type: object
+        properties:
+          address:
+            type: string
+            description: Address associated with the stake key
+        required:
+        - address
+      example:
+      - address: addr1qx2kd28nq8ac5prwg32hhvudlwggpgfp8utlyqxu6wqgz62f79qsdmm5dsknt9ecr5w468r9ey0fxwkdrwh08ly3tu9sy0f4qd
+      - address: addr1qys3czp8s9thc6u2fqed9yq3h24nyw28uk0m6mkgn9dkckjf79qsdmm5dsknt9ecr5w468r9ey0fxwkdrwh08ly3tu9suth4w4
+      - address: addr1q8j55h253zcvl326sk5qdt2n8z7eghzspe0ekxgncr796s2f79qsdmm5dsknt9ecr5w468r9ey0fxwkdrwh08ly3tu9sjmd35m
+      - address: addr1q8f7gxrprank3drhx8k5grlux7ene0nlwun8y9thu8mc3yjf79qsdmm5dsknt9ecr5w468r9ey0fxwkdrwh08ly3tu9sls6vnt
     account_utxo_content:
       type: array
       items:
@@ -1168,17 +1350,20 @@ components:
             type: string
             description: Block hash of the UTXO
           data_hash:
-            type: string
-            nullable: true
+            type:
+            - string
+            - 'null'
             description: The hash of the transaction output datum
           inline_datum:
-            type: string
-            nullable: true
+            type:
+            - string
+            - 'null'
             description: CBOR encoded inline datum
             example: 19a6aa
           reference_script_hash:
-            type: string
-            nullable: true
+            type:
+            - string
+            - 'null'
             description: The hash of the reference script of the output
             example: 13a3efd825703a352a8f71f4e2758d08c28c564e8dfcce9f77776ad1
         required:
@@ -1224,7 +1409,7 @@ components:
         data_hash: null
         inline_datum: null
         reference_script_hash: null
-    account_delegation_content:
+    account_history_content:
       type: array
       items:
         type: object
@@ -1232,100 +1417,24 @@ components:
           active_epoch:
             type: integer
             example: 210
-            description: Epoch in which the delegation becomes active
-          tx_hash:
-            type: string
-            description: Hash of the transaction containing the delegation
+            description: Epoch in which the stake was active
           amount:
             type: string
-            description: Rewards for given epoch in Lovelaces
+            description: Stake amount in Lovelaces
           pool_id:
             type: string
             description: Bech32 ID of pool being delegated to
-          tx_slot:
-            type: integer
-            description: Slot of the transaction containing the delegation
-          block_time:
-            type: integer
-            description: Block creation time in UNIX time of the transaction containing the delegation
-          block_height:
-            type: integer
-            description: Block height of the transaction containing the delegation
         required:
         - active_epoch
-        - tx_hash
         - amount
         - pool_id
-        - tx_slot
-        - block_time
-        - block_height
       example:
       - active_epoch: 210
-        tx_hash: 2dd15e0ef6e6a17841cb9541c27724072ce4d4b79b91e58432fbaa32d9572531
         amount: '12695385'
         pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
-        tx_slot: 45093580
-        block_time: 1646437200
-        block_height: 6745358
-      - active_epoch: 242
-        tx_hash: 1a0570af966fb355a7160e4f82d5a80b8681b7955f5d44bec0dde628516157f0
-        amount: '12691385'
-        pool_id: pool1kchver88u3kygsak8wgll7htr8uxn5v35lfrsyy842nkscrzyvj
-        tx_slot: 48093580
-        block_time: 1649033600
-        block_height: 7126896
-    account_addresses_content:
-      type: array
-      items:
-        type: object
-        properties:
-          address:
-            type: string
-            description: Address associated with the stake key
-        required:
-        - address
-      example:
-      - address: addr1qx2kd28nq8ac5prwg32hhvudlwggpgfp8utlyqxu6wqgz62f79qsdmm5dsknt9ecr5w468r9ey0fxwkdrwh08ly3tu9sy0f4qd
-      - address: addr1qys3czp8s9thc6u2fqed9yq3h24nyw28uk0m6mkgn9dkckjf79qsdmm5dsknt9ecr5w468r9ey0fxwkdrwh08ly3tu9suth4w4
-      - address: addr1q8j55h253zcvl326sk5qdt2n8z7eghzspe0ekxgncr796s2f79qsdmm5dsknt9ecr5w468r9ey0fxwkdrwh08ly3tu9sjmd35m
-      - address: addr1q8f7gxrprank3drhx8k5grlux7ene0nlwun8y9thu8mc3yjf79qsdmm5dsknt9ecr5w468r9ey0fxwkdrwh08ly3tu9sls6vnt
-    account_withdrawal_content:
-      type: array
-      items:
-        type: object
-        properties:
-          tx_hash:
-            type: string
-            description: Hash of the transaction containing the withdrawal
-          amount:
-            type: string
-            description: Withdrawal amount in Lovelaces
-          tx_slot:
-            type: integer
-            description: Slot of the transaction containing the withdrawal
-          block_time:
-            type: integer
-            description: Block creation time in UNIX time of the transaction containing the withdrawal
-          block_height:
-            type: integer
-            description: Block height of the transaction containing the withdrawal
-        required:
-        - tx_hash
-        - amount
-        - tx_slot
-        - block_time
-        - block_height
-      example:
-      - tx_hash: 48a9625c841eea0dd2bb6cf551eabe6523b7290c9ce34be74eedef2dd8f7ecc5
-        amount: '454541212442'
-        tx_slot: 45093580
-        block_time: 1646437200
-        block_height: 6745358
-      - tx_hash: 4230b0cbccf6f449f0847d8ad1d634a7a49df60d8c142bb8cc2dbc8ca03d9e34
-        amount: '97846969'
-        tx_slot: 48093580
-        block_time: 1649033600
-        block_height: 7126896
+      - active_epoch: 211
+        amount: '22695385'
+        pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
     account_mir_content:
       type: array
       items:
@@ -1363,104 +1472,6 @@ components:
         tx_slot: 48093580
         block_time: 1649033600
         block_height: 7126896
-    account_addresses_assets:
-      type: array
-      items:
-        type: object
-        description: The sum of all assets of all addresses associated with a given account
-        properties:
-          unit:
-            type: string
-            format: Concatenation of asset policy_id and hex-encoded asset_name
-            description: The unit of the value
-          quantity:
-            type: string
-            description: The quantity of the unit
-        required:
-        - unit
-        - quantity
-      example:
-      - unit: d5e6bf0500378d4f0da4e8dde6becec7621cd8cbf5cbb9b87013d4cc537061636542756433343132
-        quantity: '1'
-      - unit: b0d07d45fe9514f80213f4020e5a61241458be626841cde717cb38a76e7574636f696e
-        quantity: '125'
-    account_reward_content:
-      type: array
-      items:
-        type: object
-        properties:
-          epoch:
-            type: integer
-            description: Epoch of the associated reward
-          amount:
-            type: string
-            description: Rewards for given epoch in Lovelaces
-          pool_id:
-            type: string
-            description: Bech32 pool ID being delegated to
-          type:
-            type: string
-            enum:
-            - leader
-            - member
-            - pool_deposit_refund
-            description: Type of the reward
-        required:
-        - epoch
-        - amount
-        - pool_id
-        - type
-      example:
-      - epoch: 215
-        amount: '12695385'
-        pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
-        type: member
-      - epoch: 216
-        amount: '3586329'
-        pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
-        type: member
-      - epoch: 217
-        amount: '1'
-        pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
-        type: member
-      - epoch: 217
-        amount: '1337'
-        pool_id: pool1cytwr0n7eas6du2h2xshl8ypa1yqr18f0erlhhjcuczysiunjcs
-        type: leader
-      - epoch: 218
-        amount: '1395265'
-        pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
-        type: member
-      - epoch: 218
-        amount: '500000000'
-        pool_id: pool1cytwr0n7eas6du2h2xshl8ypa1yqr18f0erlhhjcuczysiunjcs
-        type: pool_deposit_refund
-    account_history_content:
-      type: array
-      items:
-        type: object
-        properties:
-          active_epoch:
-            type: integer
-            example: 210
-            description: Epoch in which the stake was active
-          amount:
-            type: string
-            description: Stake amount in Lovelaces
-          pool_id:
-            type: string
-            description: Bech32 ID of pool being delegated to
-        required:
-        - active_epoch
-        - amount
-        - pool_id
-      example:
-      - active_epoch: 210
-        amount: '12695385'
-        pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
-      - active_epoch: 211
-        amount: '22695385'
-        pool_id: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
   securitySchemes:
     project_id:
       type: apiKey

@@ -1,26 +1,7 @@
 {
   "provider": "cardano",
   "sources": [
-    "cardano-cardano-accounts-api-openapi.yml",
-    "cardano-cardano-addresses-api-openapi.yml",
-    "cardano-cardano-assets-api-openapi.yml",
-    "cardano-cardano-blocks-api-openapi.yml",
-    "cardano-cardano-epochs-api-openapi.yml",
-    "cardano-cardano-governance-api-openapi.yml",
-    "cardano-cardano-ledger-api-openapi.yml",
-    "cardano-cardano-mempool-api-openapi.yml",
-    "cardano-cardano-metadata-api-openapi.yml",
-    "cardano-cardano-network-api-openapi.yml",
-    "cardano-cardano-pools-api-openapi.yml",
-    "cardano-cardano-scripts-api-openapi.yml",
-    "cardano-cardano-transactions-api-openapi.yml",
-    "cardano-cardano-utilities-api-openapi.yml",
-    "cardano-health-api-openapi.yml",
-    "cardano-ipfs-add-api-openapi.yml",
-    "cardano-ipfs-gateway-api-openapi.yml",
-    "cardano-ipfs-pins-api-openapi.yml",
-    "cardano-metrics-api-openapi.yml",
-    "cardano-nut-link-api-openapi.yml"
+    "_original/blockfrost-cardano-api-openapi.yml"
   ],
   "outputs": [
     "cardano-cardano-accounts-api-openapi.yml",
@@ -47,6 +28,32 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "blockfrost-cardano-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "blockfrost-cardano-api-openapi.yml: declared missing tag: Nut.link",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "cardano-cardano-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-addresses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-blocks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-epochs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-governance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-ledger-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-mempool-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-metadata-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-network-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-pools-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-scripts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-transactions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-cardano-utilities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-ipfs-add-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-ipfs-gateway-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-ipfs-pins-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cardano-nut-link-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
