@@ -84,26 +84,6 @@ paths:
       x-operation-id-source: derived
 components:
   responses:
-    '400':
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status_code:
-                type: integer
-                example: 400
-              error:
-                type: string
-                example: Bad Request
-              message:
-                type: string
-                example: Backend did not understand your request.
-            required:
-            - error
-            - message
-            - status_code
     '418':
       description: IP has been auto-banned for extensive sending of requests after usage limit has been reached
       content:
@@ -120,6 +100,26 @@ components:
               message:
                 type: string
                 example: IP has been auto-banned for flooding.
+            required:
+            - error
+            - message
+            - status_code
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                example: 400
+              error:
+                type: string
+                example: Bad Request
+              message:
+                type: string
+                example: Backend did not understand your request.
             required:
             - error
             - message
@@ -144,26 +144,6 @@ components:
             - error
             - message
             - status_code
-    '429':
-      description: Usage limit reached
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status_code:
-                type: integer
-                example: 429
-              error:
-                type: string
-                example: Project Over Limit
-              message:
-                type: string
-                example: Usage is over limit.
-            required:
-            - error
-            - message
-            - status_code
     '403':
       description: Authentication secret is missing or invalid
       content:
@@ -180,6 +160,26 @@ components:
               message:
                 type: string
                 example: Invalid project token.
+            required:
+            - error
+            - message
+            - status_code
+    '429':
+      description: Usage limit reached
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                example: 429
+              error:
+                type: string
+                example: Project Over Limit
+              message:
+                type: string
+                example: Usage is over limit.
             required:
             - error
             - message

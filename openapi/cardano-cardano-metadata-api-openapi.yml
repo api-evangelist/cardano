@@ -224,26 +224,6 @@ paths:
       x-operation-id-source: derived
 components:
   responses:
-    '400':
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status_code:
-                type: integer
-                example: 400
-              error:
-                type: string
-                example: Bad Request
-              message:
-                type: string
-                example: Backend did not understand your request.
-            required:
-            - error
-            - message
-            - status_code
     '418':
       description: IP has been auto-banned for extensive sending of requests after usage limit has been reached
       content:
@@ -260,6 +240,26 @@ components:
               message:
                 type: string
                 example: IP has been auto-banned for flooding.
+            required:
+            - error
+            - message
+            - status_code
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                example: 400
+              error:
+                type: string
+                example: Bad Request
+              message:
+                type: string
+                example: Backend did not understand your request.
             required:
             - error
             - message
@@ -304,26 +304,6 @@ components:
             - error
             - message
             - status_code
-    '404':
-      description: Component not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status_code:
-                type: integer
-                example: 404
-              error:
-                type: string
-                example: Not Found
-              message:
-                type: string
-                example: The requested component has not been found.
-            required:
-            - error
-            - message
-            - status_code
     '429':
       description: Usage limit reached
       content:
@@ -344,37 +324,27 @@ components:
             - error
             - message
             - status_code
+    '404':
+      description: Component not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                example: 404
+              error:
+                type: string
+                example: Not Found
+              message:
+                type: string
+                example: The requested component has not been found.
+            required:
+            - error
+            - message
+            - status_code
   schemas:
-    tx_metadata_labels:
-      type: array
-      items:
-        type: object
-        properties:
-          label:
-            type: string
-            description: Metadata label
-          cip10:
-            type:
-            - string
-            - 'null'
-            description: CIP10 defined description
-          count:
-            type: string
-            description: The count of metadata entries with a specific label
-        required:
-        - label
-        - cip10
-        - count
-      example:
-      - label: '1990'
-        cip10: null
-        count: '1'
-      - label: '1967'
-        cip10: nut.link metadata oracles registry
-        count: '3'
-      - label: '1968'
-        cip10: nut.link metadata oracles data points
-        count: '16321'
     tx_metadata_label_json:
       type: array
       items:
@@ -411,6 +381,36 @@ components:
             source: ergoOracles
       - tx_hash: 4237501da3cfdd53ade91e8911e764bd0699d88fd43b12f44a1f459b89bc91be
         json_metadata: null
+    tx_metadata_labels:
+      type: array
+      items:
+        type: object
+        properties:
+          label:
+            type: string
+            description: Metadata label
+          cip10:
+            type:
+            - string
+            - 'null'
+            description: CIP10 defined description
+          count:
+            type: string
+            description: The count of metadata entries with a specific label
+        required:
+        - label
+        - cip10
+        - count
+      example:
+      - label: '1990'
+        cip10: null
+        count: '1'
+      - label: '1967'
+        cip10: nut.link metadata oracles registry
+        count: '3'
+      - label: '1968'
+        cip10: nut.link metadata oracles data points
+        count: '16321'
     tx_metadata_label_cbor:
       type: array
       items:

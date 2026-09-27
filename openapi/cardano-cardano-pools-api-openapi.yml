@@ -712,6 +712,47 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    pool_blocks:
+      type: array
+      items:
+        type: string
+        description: Block hashes
+      example:
+      - d8982ca42cfe76b747cc681d35d671050a9e41e9cfe26573eb214e94fe6ff21d
+      - 026436c539e2ce84c7f77ffe669f4e4bbbb3b9c53512e5857dcba8bb0b4e9a8c
+      - bcc8487f419b8c668a18ea2120822a05df6dfe1de1f0fac3feba88cf760f303c
+      - 86bf7b4a274e0f8ec9816171667c1b4a0cfc661dc21563f271acea9482b62df7
+    pool_updates:
+      type: array
+      items:
+        type: object
+        properties:
+          tx_hash:
+            type: string
+            description: Transaction ID
+          cert_index:
+            type: integer
+            description: Certificate within the transaction
+          action:
+            type: string
+            enum:
+            - registered
+            - deregistered
+            description: Action in the certificate
+        required:
+        - tx_hash
+        - cert_index
+        - action
+      example:
+      - tx_hash: 6804edf9712d2b619edb6ac86861fe93a730693183a262b165fcc1ba1bc99cad
+        cert_index: 0
+        action: registered
+      - tx_hash: 9c190bc1ac88b2ab0c05a82d7de8b71b67a9316377e865748a89d4426c0d3005
+        cert_index: 0
+        action: deregistered
+      - tx_hash: e14a75b0eb2625de7055f1f580d70426311b78e0d36dd695a6bdc96c7b3d80e0
+        cert_index: 1
+        action: registered
     pool_relays:
       type: array
       items:
@@ -751,185 +792,27 @@ components:
         - dns
         - dns_srv
         - port
-    pool_blocks:
-      type: array
-      items:
-        type: string
-        description: Block hashes
-      example:
-      - d8982ca42cfe76b747cc681d35d671050a9e41e9cfe26573eb214e94fe6ff21d
-      - 026436c539e2ce84c7f77ffe669f4e4bbbb3b9c53512e5857dcba8bb0b4e9a8c
-      - bcc8487f419b8c668a18ea2120822a05df6dfe1de1f0fac3feba88cf760f303c
-      - 86bf7b4a274e0f8ec9816171667c1b4a0cfc661dc21563f271acea9482b62df7
-    pool:
-      type: object
-      properties:
-        pool_id:
-          type: string
-          example: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
-          description: Bech32 pool ID
-        hex:
-          type: string
-          example: 0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735
-          description: Hexadecimal pool ID.
-        vrf_key:
-          type: string
-          example: 0b5245f9934ec2151116fb8ec00f35fd00e0aa3b075c4ed12cce440f999d8233
-          description: VRF key hash
-        blocks_minted:
-          type: integer
-          example: 69
-          description: Total minted blocks
-        blocks_epoch:
-          type: integer
-          example: 4
-          description: Number of blocks minted in the current epoch
-        live_stake:
-          type: string
-          example: '6900000000'
-        live_size:
-          type: number
-          example: 0.42
-        live_saturation:
-          type: number
-          example: 0.93
-        live_delegators:
-          type: number
-          example: 127
-        active_stake:
-          type: string
-          example: '4200000000'
-        active_size:
-          type: number
-          example: 0.43
-        declared_pledge:
-          type: string
-          example: '5000000000'
-          description: Stake pool certificate pledge
-        live_pledge:
-          type: string
-          example: '5000000001'
-          description: Stake pool current pledge
-        margin_cost:
-          type: number
-          example: 0.05
-          description: Margin tax cost of the stake pool
-        fixed_cost:
-          type: string
-          example: '340000000'
-          description: Fixed tax cost of the stake pool
-        reward_account:
-          type: string
-          example: stake1uxkptsa4lkr55jleztw43t37vgdn88l6ghclfwuxld2eykgpgvg3f
-          description: Bech32 reward account of the stake pool
-        owners:
-          type: array
-          items:
-            type: string
-            description: Bech32 accounts of the pool owners
-          example:
-          - stake1u98nnlkvkk23vtvf9273uq7cph5ww6u2yq2389psuqet90sv4xv9v
-        registration:
-          type: array
-          items:
-            type: string
-            description: Hash of the transaction including registration
-          example:
-          - 9f83e5484f543e05b52e99988272a31da373f3aab4c064c76db96643a355d9dc
-          - 7ce3b8c433bf401a190d58c8c483d8e3564dfd29ae8633c8b1b3e6c814403e95
-          - 3e6e1200ce92977c3fe5996bd4d7d7e192bcb7e231bc762f9f240c76766535b9
-        retirement:
-          type: array
-          items:
-            type: string
-            description: Hash of the transaction including retirement
-            example: 252f622976d39e646815db75a77289cf16df4ad2b287dd8e3a889ce14c13d1a8
-        calidus_key:
-          type:
-          - object
-          - 'null'
-          description: Last valid Calidus key for the pool
-          properties:
-            id:
-              type: string
-              example: calidus15yt3nqapz799tvp2lt8adttt29k6xa2xnltahn655tu4sgcph42p7
-              description: A Bech32-encoded identifier derived from the calidus public key
-            pub_key:
-              type: string
-              example: 57758911253f6b31df2a87c10eb08a2c9b8450768cb8dd0d378d93f7c2e220f0
-              description: The raw hexadecimal-encoded calidus public key used for verification purposes
-            nonce:
-              type: integer
-              example: 149292000
-              description: A unique number used once to prevent replay attacks and ensure the uniqueness of the key registration
-            tx_hash:
-              type: string
-              example: f45ed21c6bc1832cf7f11f4bd6ee47ca9684b4f6f8ff8a398aa2df065eac0ba8
-              description: The transaction hash that submitted the Calidus key registration
-            block_height:
-              type: integer
-              example: 11548408
-              description: The block height at which this key registration was recorded
-            block_time:
-              type: integer
-              example: 1740858988
-              description: Block time of the key registration
-            epoch:
-              type: integer
-              example: 543
-              description: Epoch number of the key registration
-          required:
-          - id
-          - pub_key
-          - nonce
-          - tx_hash
-          - block_height
-          - block_time
-          - epoch
-      required:
-      - pool_id
-      - hex
-      - vrf_key
-      - blocks_minted
-      - blocks_epoch
-      - live_stake
-      - live_size
-      - live_saturation
-      - live_delegators
-      - active_stake
-      - active_size
-      - declared_pledge
-      - live_pledge
-      - margin_cost
-      - fixed_cost
-      - reward_account
-      - owners
-      - registration
-      - retirement
-      - calidus_key
-    pool_list_retire:
+    pool_delegators:
       type: array
       items:
         type: object
         properties:
-          pool_id:
+          address:
             type: string
-            example: pool1z5uqdk7dzdxaae5633fqfcu2eqzy3a3rgtuvy087fdld7yws0xt
-            description: Bech32 encoded pool ID
-          epoch:
-            type: integer
-            example: 242
-            description: Retirement epoch number
+            description: Bech32 encoded stake addresses
+          live_stake:
+            type: string
+            description: Currently delegated amount
         required:
-        - pool_id
-        - epoch
+        - address
+        - live_stake
       example:
-      - pool_id: pool19u64770wqp6s95gkajc8udheske5e6ljmpq33awxk326zjaza0q
-        epoch: 225
-      - pool_id: pool1dvla4zq98hpvacv20snndupjrqhuc79zl6gjap565nku6et5zdx
-        epoch: 215
-      - pool_id: pool1wvccajt4eugjtf3k0ja3exjqdj7t8egsujwhcw4tzj4rzsxzw5w
-        epoch: 231
+      - address: stake1ux4vspfvwuus9uwyp5p3f0ky7a30jq5j80jxse0fr7pa56sgn8kha
+        live_stake: '1137959159981411'
+      - address: stake1uylayej7esmarzd4mk4aru37zh9yz0luj3g9fsvgpfaxulq564r5u
+        live_stake: '16958865648'
+      - address: stake1u8lr2pnrgf8f7vrs9lt79hc3sxm8s2w4rwvgpncks3axx6q93d4ck
+        live_stake: '18605647'
     pool_history:
       type: array
       items:
@@ -971,41 +854,6 @@ components:
         - delegators_count
         - rewards
         - fees
-    pool_list:
-      type: array
-      items:
-        type: string
-        description: Bech32 encoded pool ID
-      example:
-      - pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
-      - pool1hn7hlwrschqykupwwrtdfkvt2u4uaxvsgxyh6z63703p2knj288
-      - pool1ztjyjfsh432eqetadf82uwuxklh28xc85zcphpwq6mmezavzad2
-    pool_votes:
-      type: array
-      items:
-        type: object
-        properties:
-          tx_hash:
-            type: string
-            description: Hash of the proposal transaction.
-          cert_index:
-            type: integer
-            description: Index of the certificate within the proposal transaction.
-          vote:
-            type: string
-            enum:
-            - 'yes'
-            - 'no'
-            - abstain
-            description: The Vote. Can be one of yes, no, abstain.
-        required:
-        - tx_hash
-        - cert_index
-        - vote
-      example:
-      - tx_hash: b302de601defdf11a5261ed31a263804dac4a582a888c998ce24dec5
-        cert_index: 2
-        vote: 'yes'
     empty_object:
       type: object
     pool_metadata:
@@ -1084,58 +932,29 @@ components:
       - name
       - description
       - homepage
-    pool_delegators:
+    pool_list_retire:
       type: array
       items:
         type: object
         properties:
-          address:
+          pool_id:
             type: string
-            description: Bech32 encoded stake addresses
-          live_stake:
-            type: string
-            description: Currently delegated amount
-        required:
-        - address
-        - live_stake
-      example:
-      - address: stake1ux4vspfvwuus9uwyp5p3f0ky7a30jq5j80jxse0fr7pa56sgn8kha
-        live_stake: '1137959159981411'
-      - address: stake1uylayej7esmarzd4mk4aru37zh9yz0luj3g9fsvgpfaxulq564r5u
-        live_stake: '16958865648'
-      - address: stake1u8lr2pnrgf8f7vrs9lt79hc3sxm8s2w4rwvgpncks3axx6q93d4ck
-        live_stake: '18605647'
-    pool_updates:
-      type: array
-      items:
-        type: object
-        properties:
-          tx_hash:
-            type: string
-            description: Transaction ID
-          cert_index:
+            example: pool1z5uqdk7dzdxaae5633fqfcu2eqzy3a3rgtuvy087fdld7yws0xt
+            description: Bech32 encoded pool ID
+          epoch:
             type: integer
-            description: Certificate within the transaction
-          action:
-            type: string
-            enum:
-            - registered
-            - deregistered
-            description: Action in the certificate
+            example: 242
+            description: Retirement epoch number
         required:
-        - tx_hash
-        - cert_index
-        - action
+        - pool_id
+        - epoch
       example:
-      - tx_hash: 6804edf9712d2b619edb6ac86861fe93a730693183a262b165fcc1ba1bc99cad
-        cert_index: 0
-        action: registered
-      - tx_hash: 9c190bc1ac88b2ab0c05a82d7de8b71b67a9316377e865748a89d4426c0d3005
-        cert_index: 0
-        action: deregistered
-      - tx_hash: e14a75b0eb2625de7055f1f580d70426311b78e0d36dd695a6bdc96c7b3d80e0
-        cert_index: 1
-        action: registered
+      - pool_id: pool19u64770wqp6s95gkajc8udheske5e6ljmpq33awxk326zjaza0q
+        epoch: 225
+      - pool_id: pool1dvla4zq98hpvacv20snndupjrqhuc79zl6gjap565nku6et5zdx
+        epoch: 215
+      - pool_id: pool1wvccajt4eugjtf3k0ja3exjqdj7t8egsujwhcw4tzj4rzsxzw5w
+        epoch: 231
     pool_list_extended:
       type: array
       items:
@@ -1366,7 +1185,208 @@ components:
           example: '340000000'
           description: Fixed tax cost of the stake pool
         metadata: null
+    pool_votes:
+      type: array
+      items:
+        type: object
+        properties:
+          tx_hash:
+            type: string
+            description: Hash of the proposal transaction.
+          cert_index:
+            type: integer
+            description: Index of the certificate within the proposal transaction.
+          vote:
+            type: string
+            enum:
+            - 'yes'
+            - 'no'
+            - abstain
+            description: The Vote. Can be one of yes, no, abstain.
+        required:
+        - tx_hash
+        - cert_index
+        - vote
+      example:
+      - tx_hash: b302de601defdf11a5261ed31a263804dac4a582a888c998ce24dec5
+        cert_index: 2
+        vote: 'yes'
+    pool:
+      type: object
+      properties:
+        pool_id:
+          type: string
+          example: pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
+          description: Bech32 pool ID
+        hex:
+          type: string
+          example: 0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735
+          description: Hexadecimal pool ID.
+        vrf_key:
+          type: string
+          example: 0b5245f9934ec2151116fb8ec00f35fd00e0aa3b075c4ed12cce440f999d8233
+          description: VRF key hash
+        blocks_minted:
+          type: integer
+          example: 69
+          description: Total minted blocks
+        blocks_epoch:
+          type: integer
+          example: 4
+          description: Number of blocks minted in the current epoch
+        live_stake:
+          type: string
+          example: '6900000000'
+        live_size:
+          type: number
+          example: 0.42
+        live_saturation:
+          type: number
+          example: 0.93
+        live_delegators:
+          type: number
+          example: 127
+        active_stake:
+          type: string
+          example: '4200000000'
+        active_size:
+          type: number
+          example: 0.43
+        declared_pledge:
+          type: string
+          example: '5000000000'
+          description: Stake pool certificate pledge
+        live_pledge:
+          type: string
+          example: '5000000001'
+          description: Stake pool current pledge
+        margin_cost:
+          type: number
+          example: 0.05
+          description: Margin tax cost of the stake pool
+        fixed_cost:
+          type: string
+          example: '340000000'
+          description: Fixed tax cost of the stake pool
+        reward_account:
+          type: string
+          example: stake1uxkptsa4lkr55jleztw43t37vgdn88l6ghclfwuxld2eykgpgvg3f
+          description: Bech32 reward account of the stake pool
+        owners:
+          type: array
+          items:
+            type: string
+            description: Bech32 accounts of the pool owners
+          example:
+          - stake1u98nnlkvkk23vtvf9273uq7cph5ww6u2yq2389psuqet90sv4xv9v
+        registration:
+          type: array
+          items:
+            type: string
+            description: Hash of the transaction including registration
+          example:
+          - 9f83e5484f543e05b52e99988272a31da373f3aab4c064c76db96643a355d9dc
+          - 7ce3b8c433bf401a190d58c8c483d8e3564dfd29ae8633c8b1b3e6c814403e95
+          - 3e6e1200ce92977c3fe5996bd4d7d7e192bcb7e231bc762f9f240c76766535b9
+        retirement:
+          type: array
+          items:
+            type: string
+            description: Hash of the transaction including retirement
+            example: 252f622976d39e646815db75a77289cf16df4ad2b287dd8e3a889ce14c13d1a8
+        calidus_key:
+          type:
+          - object
+          - 'null'
+          description: Last valid Calidus key for the pool
+          properties:
+            id:
+              type: string
+              example: calidus15yt3nqapz799tvp2lt8adttt29k6xa2xnltahn655tu4sgcph42p7
+              description: A Bech32-encoded identifier derived from the calidus public key
+            pub_key:
+              type: string
+              example: 57758911253f6b31df2a87c10eb08a2c9b8450768cb8dd0d378d93f7c2e220f0
+              description: The raw hexadecimal-encoded calidus public key used for verification purposes
+            nonce:
+              type: integer
+              example: 149292000
+              description: A unique number used once to prevent replay attacks and ensure the uniqueness of the key registration
+            tx_hash:
+              type: string
+              example: f45ed21c6bc1832cf7f11f4bd6ee47ca9684b4f6f8ff8a398aa2df065eac0ba8
+              description: The transaction hash that submitted the Calidus key registration
+            block_height:
+              type: integer
+              example: 11548408
+              description: The block height at which this key registration was recorded
+            block_time:
+              type: integer
+              example: 1740858988
+              description: Block time of the key registration
+            epoch:
+              type: integer
+              example: 543
+              description: Epoch number of the key registration
+          required:
+          - id
+          - pub_key
+          - nonce
+          - tx_hash
+          - block_height
+          - block_time
+          - epoch
+      required:
+      - pool_id
+      - hex
+      - vrf_key
+      - blocks_minted
+      - blocks_epoch
+      - live_stake
+      - live_size
+      - live_saturation
+      - live_delegators
+      - active_stake
+      - active_size
+      - declared_pledge
+      - live_pledge
+      - margin_cost
+      - fixed_cost
+      - reward_account
+      - owners
+      - registration
+      - retirement
+      - calidus_key
+    pool_list:
+      type: array
+      items:
+        type: string
+        description: Bech32 encoded pool ID
+      example:
+      - pool1pu5jlj4q9w9jlxeu370a3c9myx47md5j5m2str0naunn2q3lkdy
+      - pool1hn7hlwrschqykupwwrtdfkvt2u4uaxvsgxyh6z63703p2knj288
+      - pool1ztjyjfsh432eqetadf82uwuxklh28xc85zcphpwq6mmezavzad2
   responses:
+    '418':
+      description: IP has been auto-banned for extensive sending of requests after usage limit has been reached
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                example: 418
+              error:
+                type: string
+                example: Requested Banned
+              message:
+                type: string
+                example: IP has been auto-banned for flooding.
+            required:
+            - error
+            - message
+            - status_code
     '400':
       description: Bad request
       content:
@@ -1407,26 +1427,6 @@ components:
             - error
             - message
             - status_code
-    '418':
-      description: IP has been auto-banned for extensive sending of requests after usage limit has been reached
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status_code:
-                type: integer
-                example: 418
-              error:
-                type: string
-                example: Requested Banned
-              message:
-                type: string
-                example: IP has been auto-banned for flooding.
-            required:
-            - error
-            - message
-            - status_code
     '403':
       description: Authentication secret is missing or invalid
       content:
@@ -1447,26 +1447,6 @@ components:
             - error
             - message
             - status_code
-    '404':
-      description: Component not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status_code:
-                type: integer
-                example: 404
-              error:
-                type: string
-                example: Not Found
-              message:
-                type: string
-                example: The requested component has not been found.
-            required:
-            - error
-            - message
-            - status_code
     '429':
       description: Usage limit reached
       content:
@@ -1483,6 +1463,26 @@ components:
               message:
                 type: string
                 example: Usage is over limit.
+            required:
+            - error
+            - message
+            - status_code
+    '404':
+      description: Component not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                example: 404
+              error:
+                type: string
+                example: Not Found
+              message:
+                type: string
+                example: The requested component has not been found.
             required:
             - error
             - message

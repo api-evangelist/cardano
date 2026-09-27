@@ -131,26 +131,6 @@ paths:
       x-operation-id-source: derived
 components:
   responses:
-    '400':
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status_code:
-                type: integer
-                example: 400
-              error:
-                type: string
-                example: Bad Request
-              message:
-                type: string
-                example: Backend did not understand your request.
-            required:
-            - error
-            - message
-            - status_code
     '418':
       description: IP has been auto-banned for extensive sending of requests after usage limit has been reached
       content:
@@ -171,8 +151,8 @@ components:
             - error
             - message
             - status_code
-    '500':
-      description: Internal Server Error
+    '400':
+      description: Bad request
       content:
         application/json:
           schema:
@@ -180,13 +160,13 @@ components:
             properties:
               status_code:
                 type: integer
-                example: 500
+                example: 400
               error:
                 type: string
-                example: Internal Server Error
+                example: Bad Request
               message:
                 type: string
-                example: An unexpected response was received from the backend.
+                example: Backend did not understand your request.
             required:
             - error
             - message
@@ -207,6 +187,26 @@ components:
               message:
                 type: string
                 example: Invalid project token.
+            required:
+            - error
+            - message
+            - status_code
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                example: 500
+              error:
+                type: string
+                example: Internal Server Error
+              message:
+                type: string
+                example: An unexpected response was received from the backend.
             required:
             - error
             - message
