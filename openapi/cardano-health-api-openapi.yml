@@ -131,8 +131,8 @@ paths:
       x-operation-id-source: derived
 components:
   responses:
-    '418':
-      description: IP has been auto-banned for extensive sending of requests after usage limit has been reached
+    '500':
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -140,13 +140,13 @@ components:
             properties:
               status_code:
                 type: integer
-                example: 418
+                example: 500
               error:
                 type: string
-                example: Requested Banned
+                example: Internal Server Error
               message:
                 type: string
-                example: IP has been auto-banned for flooding.
+                example: An unexpected response was received from the backend.
             required:
             - error
             - message
@@ -191,8 +191,8 @@ components:
             - error
             - message
             - status_code
-    '500':
-      description: Internal Server Error
+    '418':
+      description: IP has been auto-banned for extensive sending of requests after usage limit has been reached
       content:
         application/json:
           schema:
@@ -200,13 +200,13 @@ components:
             properties:
               status_code:
                 type: integer
-                example: 500
+                example: 418
               error:
                 type: string
-                example: Internal Server Error
+                example: Requested Banned
               message:
                 type: string
-                example: An unexpected response was received from the backend.
+                example: IP has been auto-banned for flooding.
             required:
             - error
             - message

@@ -601,8 +601,8 @@ paths:
       x-operation-id-source: derived
 components:
   responses:
-    '418':
-      description: IP has been auto-banned for extensive sending of requests after usage limit has been reached
+    '500':
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -610,13 +610,13 @@ components:
             properties:
               status_code:
                 type: integer
-                example: 418
+                example: 500
               error:
                 type: string
-                example: Requested Banned
+                example: Internal Server Error
               message:
                 type: string
-                example: IP has been auto-banned for flooding.
+                example: An unexpected response was received from the backend.
             required:
             - error
             - message
@@ -641,26 +641,6 @@ components:
             - error
             - message
             - status_code
-    '404':
-      description: Component not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status_code:
-                type: integer
-                example: 404
-              error:
-                type: string
-                example: Not Found
-              message:
-                type: string
-                example: The requested component has not been found.
-            required:
-            - error
-            - message
-            - status_code
     '429':
       description: Usage limit reached
       content:
@@ -681,8 +661,8 @@ components:
             - error
             - message
             - status_code
-    '500':
-      description: Internal Server Error
+    '418':
+      description: IP has been auto-banned for extensive sending of requests after usage limit has been reached
       content:
         application/json:
           schema:
@@ -690,13 +670,13 @@ components:
             properties:
               status_code:
                 type: integer
-                example: 500
+                example: 418
               error:
                 type: string
-                example: Internal Server Error
+                example: Requested Banned
               message:
                 type: string
-                example: An unexpected response was received from the backend.
+                example: IP has been auto-banned for flooding.
             required:
             - error
             - message
@@ -717,6 +697,26 @@ components:
               message:
                 type: string
                 example: Backend did not understand your request.
+            required:
+            - error
+            - message
+            - status_code
+    '404':
+      description: Component not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status_code:
+                type: integer
+                example: 404
+              error:
+                type: string
+                example: Not Found
+              message:
+                type: string
+                example: The requested component has not been found.
             required:
             - error
             - message
@@ -750,16 +750,6 @@ components:
       - address: addr1qxqs59lphg8g6qndelq8xwqn60ag3aeyfcp33c2kdp46a09re5df3pzwwmyq946axfcejy5n4x0y99wqpgtp2gd0k09qsgy6pz
         transactions:
         - tx_hash: 1a0570af966fb355a7160e4f82d5a80b8681b7955f5d44bec0dce628516157d0
-    block_content_txs:
-      type: array
-      items:
-        type: string
-        description: Hash of the transaction
-      example:
-      - 8788591983aa73981fc92d6cddbbe643959f5a784e84b8bee0db15823f575a5b
-      - 4eef6bb7755d8afbeac526b799f3e32a624691d166657e9d862aaeb66682c036
-      - 52e748c4dec58b687b90b0b40d383b9fe1f24c1a833b7395cdf07dd67859f46f
-      - e8073fd5318ff43eca18a852527166aa8008bee9ee9e891f585612b7e4ba700b
     block_content_txs_cbor:
       type: array
       items:
@@ -783,6 +773,16 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/block_content'
+    block_content_txs:
+      type: array
+      items:
+        type: string
+        description: Hash of the transaction
+      example:
+      - 8788591983aa73981fc92d6cddbbe643959f5a784e84b8bee0db15823f575a5b
+      - 4eef6bb7755d8afbeac526b799f3e32a624691d166657e9d862aaeb66682c036
+      - 52e748c4dec58b687b90b0b40d383b9fe1f24c1a833b7395cdf07dd67859f46f
+      - e8073fd5318ff43eca18a852527166aa8008bee9ee9e891f585612b7e4ba700b
     block_content:
       type: object
       properties:
