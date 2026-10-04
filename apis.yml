@@ -523,6 +523,9 @@ apis:
   - type: FinOps
     url: finops/cardano-finops.yml
 common:
+- type: CapabilityMap
+  url: capabilities/cardano-capability-edges.yml
+  name: Cardano Business Capability Map
 - type: AgenticAccess
   url: agentic-access/cardano-agentic-access.yml
 - type: DomainSecurity
