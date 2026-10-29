@@ -1,4 +1,4 @@
-# Cardano (cardano)
+# Cardano
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,74 +66,191 @@
 
 Cardano is a proof-of-stake blockchain platform designed for secure and scalable decentralized applications and smart contracts. Developer API access to the Cardano network is provided primarily through Blockfrost, a hosted REST API service that exposes over 100 endpoints covering transactions, addresses, assets, blocks, epochs, stake pools, governance, scripts, metadata, and mempool data. Authentication uses project-scoped API keys passed as HTTP headers. Blockfrost operates on Cardano Mainnet, Preview, and Pre-Production testnets, and also supports IPFS storage and the Milkomeda sidechain. SDKs are available for 15+ programming languages.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/cardano/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/cardano/refs/heads/main/apis.yml)
+**Areas:** Cardano · Blockchain · Cryptocurrency · Proof of Stake · Smart Contracts · Web3
 
-## Scope
+## Cardano on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Cardano is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cardano/](https://apis.io/providers/cardano/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (21)
 
-- Blockchain
-- Cryptocurrency
-- Proof-of-Stake
-- Smart Contracts
-- Web3
+- [Blockfrost IPFS API](https://apis.io/apis/cardano/blockfrost-ipfs-api/) — Blockfrost also operates as an IPFS provider, enabling developers building on Cardano to pin and retrieve content-addressed files via the InterPlanetary…
+- [Cardano » Accounts API](https://apis.io/apis/cardano/cardano-cardano-accounts-api/) — The Cardano » Accounts API from Cardano — 12 operation(s) for cardano » accounts.
+- [Cardano » Addresses API](https://apis.io/apis/cardano/cardano-cardano-addresses-api/) — The Cardano » Addresses API from Cardano — 7 operation(s) for cardano » addresses.
+- [Cardano » Assets API](https://apis.io/apis/cardano/cardano-cardano-assets-api/) — The Cardano » Assets API from Cardano — 7 operation(s) for cardano » assets.
+- [Cardano » Blocks API](https://apis.io/apis/cardano/cardano-cardano-blocks-api/) — The Cardano » Blocks API from Cardano — 11 operation(s) for cardano » blocks.
+- [Cardano » Epochs API](https://apis.io/apis/cardano/cardano-cardano-epochs-api/) — The Cardano » Epochs API from Cardano — 10 operation(s) for cardano » epochs.
+- [Cardano » Governance API](https://apis.io/apis/cardano/cardano-cardano-governance-api/) — The Cardano » Governance API from Cardano — 20 operation(s) for cardano » governance.
+- [Cardano » Ledger API](https://apis.io/apis/cardano/cardano-cardano-ledger-api/) — The Cardano » Ledger API from Cardano — 1 operation(s) for cardano » ledger.
+- [Cardano » Mempool API](https://apis.io/apis/cardano/cardano-cardano-mempool-api/) — The Cardano » Mempool API from Cardano — 3 operation(s) for cardano » mempool.
+- [Cardano » Metadata API](https://apis.io/apis/cardano/cardano-cardano-metadata-api/) — The Cardano » Metadata API from Cardano — 3 operation(s) for cardano » metadata.
+- [Cardano » Network API](https://apis.io/apis/cardano/cardano-cardano-network-api/) — The Cardano » Network API from Cardano — 2 operation(s) for cardano » network.
+- [Cardano » Pools API](https://apis.io/apis/cardano/cardano-cardano-pools-api/) — The Cardano » Pools API from Cardano — 12 operation(s) for cardano » pools.
+- [Cardano » Scripts API](https://apis.io/apis/cardano/cardano-cardano-scripts-api/) — The Cardano » Scripts API from Cardano — 7 operation(s) for cardano » scripts.
+- [Cardano » Transactions API](https://apis.io/apis/cardano/cardano-cardano-transactions-api/) — The Cardano » Transactions API from Cardano — 14 operation(s) for cardano » transactions.
+- [Cardano » Utilities API](https://apis.io/apis/cardano/cardano-cardano-utilities-api/) — The Cardano » Utilities API from Cardano — 3 operation(s) for cardano » utilities.
+- [Cardano Health API](https://apis.io/apis/cardano/cardano-health-api/) — The Health API from Cardano — 3 operation(s) for health.
+- [Cardano IPFS » Add API](https://apis.io/apis/cardano/cardano-ipfs-add-api/) — The IPFS » Add API from Cardano — 1 operation(s) for ipfs » add.
+- [Cardano IPFS » Gateway API](https://apis.io/apis/cardano/cardano-ipfs-gateway-api/) — The IPFS » Gateway API from Cardano — 1 operation(s) for ipfs » gateway.
+- [Cardano IPFS » Pins API](https://apis.io/apis/cardano/cardano-ipfs-pins-api/) — The IPFS » Pins API from Cardano — 4 operation(s) for ipfs » pins.
+- [Cardano Metrics API](https://apis.io/apis/cardano/cardano-metrics-api/) — The Metrics API from Cardano — 2 operation(s) for metrics.
+- [Cardano Nut.link API](https://apis.io/apis/cardano/cardano-nut-link-api/) — The Nut.link API from Cardano — 4 operation(s) for nut.link.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-06-13
-- **Modified:** 2026-06-13
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Blockfrost Cardano API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Blockfrost Cardano API provides instant, highly optimized REST access to the Cardano blockchain without requiring developers to run their own node or manage infrastructure. The API covers over 100 endpoints across accounts, addresses, assets, blocks, epochs, governance, ledger state, mempool, metadata, network statistics, pools, scripts, transactions, and utilities. Authentication requires a `project_id` header obtained by registering at blockfrost.io.
+- [Cardano Agentic Access](https://apis.io/agentic-access/cardano/cardano-agentic-access/)
 
-- **Human URL:** [https://blockfrost.dev/start-building/cardano/](https://blockfrost.dev/start-building/cardano/)
-- **Base URL:** `https://cardano-mainnet.blockfrost.io/api/v0`
+#### JSON Schema (141)
 
-#### Tags
+The data models the API reads and writes.
 
-- Blockchain
-- Cardano
-- Transactions
-- Addresses
-- Assets
-- Blocks
-- Epochs
-- Pools
-- Smart Contracts
+- [Aggregatorfeaturesmessage](https://apis.io/schemas/cardano/AggregatorFeaturesMessage/)
+- [Cardanodbbeacon](https://apis.io/schemas/cardano/CardanoDbBeacon/)
+- [Cardanotransactionproofmessage](https://apis.io/schemas/cardano/CardanoTransactionProofMessage/)
+- [Cardanotransactionsnapshotlistmessage](https://apis.io/schemas/cardano/CardanoTransactionSnapshotListMessage/)
+- [Cardanotransactionsnapshotmessage](https://apis.io/schemas/cardano/CardanoTransactionSnapshotMessage/)
+- [Certificatelistitemmessage](https://apis.io/schemas/cardano/CertificateListItemMessage/)
+- [Certificatelistitemmessagemetadata](https://apis.io/schemas/cardano/CertificateListItemMessageMetadata/)
+- [Certificatelistmessage](https://apis.io/schemas/cardano/CertificateListMessage/)
+- [Certificatemessage](https://apis.io/schemas/cardano/CertificateMessage/)
+- [Certificatemetadata](https://apis.io/schemas/cardano/CertificateMetadata/)
+- [Certificatependingmessage](https://apis.io/schemas/cardano/CertificatePendingMessage/)
+- [Epoch](https://apis.io/schemas/cardano/Epoch/)
+- [Epochsettingsmessage](https://apis.io/schemas/cardano/EpochSettingsMessage/)
+- [Error](https://apis.io/schemas/cardano/Error/)
+- [Mithrilstakedistributionlistmessage](https://apis.io/schemas/cardano/MithrilStakeDistributionListMessage/)
+- [Mithrilstakedistributionmessage](https://apis.io/schemas/cardano/MithrilStakeDistributionMessage/)
+- [Protocolmessage](https://apis.io/schemas/cardano/ProtocolMessage/)
+- [Protocolmessageparts](https://apis.io/schemas/cardano/ProtocolMessageParts/)
+- [Protocolparameters](https://apis.io/schemas/cardano/ProtocolParameters/)
+- [Registersignermessage](https://apis.io/schemas/cardano/RegisterSignerMessage/)
+- [Registersinglesignaturemessage](https://apis.io/schemas/cardano/RegisterSingleSignatureMessage/)
+- [Signedentitytype](https://apis.io/schemas/cardano/SignedEntityType/)
+- [Signer](https://apis.io/schemas/cardano/Signer/)
+- [Signerregistrationslistitemmessage](https://apis.io/schemas/cardano/SignerRegistrationsListItemMessage/)
+- [Signerregistrationsmessage](https://apis.io/schemas/cardano/SignerRegistrationsMessage/)
+- …and 116 more published on APIs.io
 
-#### Properties
+#### JSON-LD (2)
 
-| Type | URL |
-|------|-----|
-| Documentation | [https://blockfrost.dev/start-building/cardano/](https://blockfrost.dev/start-building/cardano/) |
-| APIReference | [https://docs.blockfrost.io/](https://docs.blockfrost.io/) |
-| Plans | [https://blockfrost.dev/overview/plans-and-billing](https://blockfrost.dev/overview/plans-and-billing) |
-| Plans | [plans/cardano-plans-pricing.yml](plans/cardano-plans-pricing.yml) |
-| RateLimits | [rate-limits/cardano-rate-limits.yml](rate-limits/cardano-rate-limits.yml) |
-| FinOps | [finops/cardano-finops.yml](finops/cardano-finops.yml) |
+Linked-data contexts for the provider's vocabulary.
 
-### Blockfrost IPFS API
+- [Blockfrost Cardano Api Context](https://apis.io/jsonld/cardano/blockfrost-cardano-api/)
+- [Blockfrost Cardano Context](https://apis.io/jsonld/cardano/blockfrost-cardano-context/)
 
-Blockfrost also operates as an IPFS provider, enabling developers building on Cardano to pin and retrieve content-addressed files via the InterPlanetary File System. The IPFS API uses the same `project_id` authentication as the Cardano mainnet API. Storage quota varies by subscription plan, from 100 MB on the free Starter tier to 50,000 MB on the Developer tier.
+#### Examples (69)
 
-- **Human URL:** [https://blockfrost.dev/](https://blockfrost.dev/)
-- **Base URL:** `https://ipfs.blockfrost.io/api/v0`
+Example requests and responses.
 
-#### Tags
+- [Aggregatorfeaturesmessage Example](https://apis.io/examples/cardano/AggregatorFeaturesMessage-example/)
+- [Cardanodbbeacon Example](https://apis.io/examples/cardano/CardanoDbBeacon-example/)
+- [Cardanotransactionproofmessage Example](https://apis.io/examples/cardano/CardanoTransactionProofMessage-example/)
+- [Cardanotransactionsnapshotmessage Example](https://apis.io/examples/cardano/CardanoTransactionSnapshotMessage-example/)
+- [Certificatelistitemmessage Example](https://apis.io/examples/cardano/CertificateListItemMessage-example/)
+- [Certificatelistitemmessagemetadata Example](https://apis.io/examples/cardano/CertificateListItemMessageMetadata-example/)
+- [Certificatemessage Example](https://apis.io/examples/cardano/CertificateMessage-example/)
+- [Certificatemetadata Example](https://apis.io/examples/cardano/CertificateMetadata-example/)
+- [Certificatependingmessage Example](https://apis.io/examples/cardano/CertificatePendingMessage-example/)
+- [Epochsettingsmessage Example](https://apis.io/examples/cardano/EpochSettingsMessage-example/)
+- [Error Example](https://apis.io/examples/cardano/Error-example/)
+- [Mithrilstakedistributionmessage Example](https://apis.io/examples/cardano/MithrilStakeDistributionMessage-example/)
+- [Protocolmessage Example](https://apis.io/examples/cardano/ProtocolMessage-example/)
+- [Protocolmessageparts Example](https://apis.io/examples/cardano/ProtocolMessageParts-example/)
+- [Protocolparameters Example](https://apis.io/examples/cardano/ProtocolParameters-example/)
+- [Registersignermessage Example](https://apis.io/examples/cardano/RegisterSignerMessage-example/)
+- [Registersinglesignaturemessage Example](https://apis.io/examples/cardano/RegisterSingleSignatureMessage-example/)
+- [Signedentitytype Example](https://apis.io/examples/cardano/SignedEntityType-example/)
+- [Signer Example](https://apis.io/examples/cardano/Signer-example/)
+- [Signerregistrationslistitemmessage Example](https://apis.io/examples/cardano/SignerRegistrationsListItemMessage-example/)
+- [Signerregistrationsmessage Example](https://apis.io/examples/cardano/SignerRegistrationsMessage-example/)
+- [Signertickerlistitemmessage Example](https://apis.io/examples/cardano/SignerTickerListItemMessage-example/)
+- [Signerwithstake Example](https://apis.io/examples/cardano/SignerWithStake-example/)
+- [Signerstickersmessage Example](https://apis.io/examples/cardano/SignersTickersMessage-example/)
+- [Snapshot Example](https://apis.io/examples/cardano/Snapshot-example/)
+- …and 44 more published on APIs.io
 
-- Blockchain
-- Cardano
-- IPFS
-- Storage
-- Decentralized Storage
+#### Collections (20)
 
-## Maintainers
+Postman and Open Collection request collections.
 
-**Kin Lane** — kin@apievangelist.com
+- [Blockfrost.io ~ API Documentation Cardano » Accounts API](https://apis.io/collections/cardano/open-cardano-cardano-accounts-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Addresses API](https://apis.io/collections/cardano/open-cardano-cardano-addresses-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Assets API](https://apis.io/collections/cardano/open-cardano-cardano-assets-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Blocks API](https://apis.io/collections/cardano/open-cardano-cardano-blocks-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Epochs API](https://apis.io/collections/cardano/open-cardano-cardano-epochs-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Governance API](https://apis.io/collections/cardano/open-cardano-cardano-governance-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Ledger API](https://apis.io/collections/cardano/open-cardano-cardano-ledger-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Mempool API](https://apis.io/collections/cardano/open-cardano-cardano-mempool-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Metadata API](https://apis.io/collections/cardano/open-cardano-cardano-metadata-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Network API](https://apis.io/collections/cardano/open-cardano-cardano-network-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Pools API](https://apis.io/collections/cardano/open-cardano-cardano-pools-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Scripts API](https://apis.io/collections/cardano/open-cardano-cardano-scripts-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Transactions API](https://apis.io/collections/cardano/open-cardano-cardano-transactions-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Cardano » Utilities API](https://apis.io/collections/cardano/open-cardano-cardano-utilities-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Health API](https://apis.io/collections/cardano/open-cardano-health-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts IPFS » Add API](https://apis.io/collections/cardano/open-cardano-ipfs-add-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts IPFS » Gateway API](https://apis.io/collections/cardano/open-cardano-ipfs-gateway-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts IPFS » Pins API](https://apis.io/collections/cardano/open-cardano-ipfs-pins-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Metrics API](https://apis.io/collections/cardano/open-cardano-metrics-api/)
+- [Blockfrost.io ~ API Documentation Cardano » Accounts Nut.link API](https://apis.io/collections/cardano/open-cardano-nut-link-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Cardano — jsonschema rules](https://apis.io/rules/cardano/cardano-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Cardano Authentication](https://apis.io/security/cardano/cardano-authentication/)
+- [Cardano Domain Security](https://apis.io/security/cardano/cardano-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Cardano Plans Pricing](https://apis.io/plans/cardano/cardano-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Cardano Rate Limits](https://apis.io/rate-limits/cardano/cardano-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Cardano Finops](https://apis.io/finops/cardano/cardano-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Blog](https://cardano.org/news/)
+
+## API Evangelist rating
+
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
+
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Cardano: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cardano/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
